@@ -35,9 +35,9 @@
                   <%# end %>
                 </li>
                 <li>
-                  <%#= link_to destroy_customer_session_path, method: :delete, class: "nav-link text-light" do %>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
                   ログアウト
-                  <%# end %>
+                  <% end %>
                 </li>
 
               <%# elsif admin_signed_in? %>
@@ -69,14 +69,14 @@
 
               <%# else %>
                 <li>
-                  <%#= link_to new_customer_registration_path, class: "nav-link text-light" do %>
+                  <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
                   新規登録
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li>
-                  <%#= link_to new_customer_session_path, class: "nav-link text-light" do %>
+                  <%= link_to new_user_session_path, class: "nav-link text-light" do %>
                   ログイン
-                  <%# end %>
+                  <% end %>
                 </li>
               <%# end %>
               </ul>
