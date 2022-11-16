@@ -1,0 +1,57 @@
+<div class="row mb-5">
+  <div class="mx-auto">
+    <h3>新規ユーザー登録</h3>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="mx-auto">
+    <div class="col-md-12">
+
+      <%= form_with model: @user, url: user_registration_path do |f| %>
+        <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :ユーザー名 %><br />
+        <%= f.email_field :user_name, autofocus: true, autocomplete: "user_name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+
+      </div>
+
+      <div class="field">
+        <%= f.label :パスワード %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :パスワード %><em>(確認用)</em><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="col mt-5 text-center">
+        <div class="actions">
+          <%= f.submit "登録", class: "btn btn-dark" %>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="mx-auto">
+      <%= render "public/shared/links" %>
+  </div>
+</div>
