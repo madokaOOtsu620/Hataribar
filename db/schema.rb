@@ -10,7 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_13_010224) do
+ActiveRecord::Schema.define(version: 2022_11_16_160558) do
+
+  create_table "posts", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "industry_id"
+    t.string "answer_what"
+    t.string "answer_employment_type"
+    t.string "answer_working_style"
+    t.string "answer_income"
+    t.string "answer_how"
+    t.string "answer_skill"
+    t.string "answer_why"
+    t.string "answer_aptitude"
+    t.string "answer_future"
+    t.string "answer_advantage"
+    t.string "answer_free"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
