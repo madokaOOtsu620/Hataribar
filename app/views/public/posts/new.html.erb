@@ -1,0 +1,72 @@
+<div class="row mb-5">
+  <div class="row">
+    <h3>あなたの職業体験を教えてください。</h3>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="mx-auto">
+    <div class="col-md-12">
+
+      <%= form_with model: @post do |f| %>
+
+        <div class="field">
+          <h4>業種</h4>
+            <%#= f.select %>
+        </div>
+        <div class="field">
+          <h4>どんなお仕事ですか？職種や働く場所、業務内容を教えてください。</h4>
+            <%= f.text_area :answer_what , placeholder:"(例)空港で航空貨物を取り扱う事務の仕事をしていました。業務内容は〜" %>
+        </div>
+        <div class="field">
+          <h4>雇用形態は？</h4>
+            <%= f.text_area :answer_employment_type , placeholder:"(例)正社員、パート、アルバイトなど" %>
+        </div>
+        <div class="field">
+          <h4>勤務形態は？</h4>
+            <%= f.text_area :answer_working_style , placeholder:"(例)完全シフト制です。具体的には、休日が〜、シフトは〜..." %>
+        </div>
+        <div class="field">
+          <h4>年収(額面の金額)や手取りの金額を教えてください。</h4>
+            <%= f.text_area :answer_income , placeholder:"(例)年収は日勤の部署とシフトの部署で異なり、350〜450万。手取りは月20万くらい..." %>
+        </div>
+        <div class="field">
+          <h4>その仕事にはどうやってなりましたか？学歴や経歴などを教えてください。</h4>
+            <%= f.text_area :answer_how , placeholder:"(例)観光系の専門学校を通っています。" %>
+        </div>
+        <div class="field">
+          <h4>その仕事をする為に必要な資格やスキルはありますか？</h4>
+            <%= f.text_area :answer_skill , placeholder:"(例)海外支店とのメールのやりとりが頻繁にある為、対応できる最低限の英語力が必要です。" %>
+        </div>
+        <div class="field">
+          <h4>なぜその仕事をやろうと思いましたか？</h4>
+            <%= f.text_area :answer_why , placeholder:"(例)英語を使う仕事という観点から航空業界に興味を持ち、〜" %>
+        </div>
+        <div class="field">
+          <h4>その仕事に向いている人の特徴はありますか？自分自身の性格や、周りにいた方はどんな感じでしたか？</h4>
+            <%= f.text_area :answer_aptitude , placeholder:"(例)マルチタスクが得意な方、せっかちな方に向いていると思います。" %>
+        </div>
+        <div class="field">
+          <h4>その仕事の将来性をどう考えますか？</h4>
+            <%= f.text_area :answer_future , placeholder:"(例)物流を支える仕事なので無くなることは無いが、〜" %>
+        </div>
+        <div class="field">
+          <h4>その仕事をやっていて良かったこと、メリットだと感じたこと、やりがいなどを教えてください。</h4>
+            <%= f.text_area :answer_advantage , placeholder:"(例)仕事というよりはシフト勤務のメリット。平日に休みが取れるので〜、" %>
+        </div>
+        <div class="field">
+          <h4>その他、これからその仕事をやろうとする人へのコメントなど自由に意見をください。</h4>
+            <%= f.text_area :answer_free , placeholder:"(例)航空業界の事務仕事ということで、ハマる人にはハマる仕事だと思います。ただシフト勤務はやはり体を壊すのでお勧めできない。" %>
+        </div>
+
+        <div class="col mt-5 text-center">
+          <div class="actions">
+            <%= f.submit "確認画面へ進む", class: "btn btn-dark" %>
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

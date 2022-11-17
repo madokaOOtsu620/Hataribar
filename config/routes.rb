@@ -15,6 +15,11 @@ Rails.application.routes.draw do
   get 'users/confirm' => 'users#confirm'
   patch 'users/withdraw' => 'users#withdraw'
 
+  # posts
+  post 'posts/confirm' => 'posts#confirm'
+  resources :posts, only: [:new, :create, :index, :show, :edit, :update]
+
+
   end
 
 
