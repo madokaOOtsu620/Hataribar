@@ -1,0 +1,31 @@
+<div class="row mb-5">
+  <div class="col-md-4">
+    <%# render 検索窓  %>
+  </div>
+
+  <div class="col-md-8">
+    <h3>体験談</h3>
+
+    <div class="post bg-secondary">
+    </div>
+
+    <div>
+      <%= form_with model: [@post, @comment] do |f| %>
+        <%= f.text_area :comment, placeholder: "コメントはここに書いてください" %>
+        <%= f.submit "コメントを送信する" %>
+      <% end %>
+    </div>
+
+    <div>
+      <% @post.comments.each do |comment| %>
+        <%= post.comment %><br>
+        <%= comment.created_at.strftime('%Y/%m/%d') %>
+        <% if comment_user == current_user %>
+          <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete %>
+        <% end %>
+      <% end %>
+    </div>
+
+  </div>
+
+</div>
