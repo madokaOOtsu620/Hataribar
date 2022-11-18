@@ -17,7 +17,12 @@ Rails.application.routes.draw do
 
   # posts
   post 'posts/confirm' => 'posts#confirm'
-  resources :posts, only: [:new, :create, :index, :show, :edit, :update]
+  resources :posts, only: [:new, :create, :index, :show, :edit, :update] do
+    
+  # commets 親のresourcesであるpostsにネストする
+  resources :comments, only: [:create, :destroy]
+
+  end
 
 
   end
