@@ -12,7 +12,7 @@
 
         <div class="field">
           <h4>業種</h4>
-            <%#= f.select %>
+            <%= f.collection_select :industry_id, Industry.all, :id, :industry, include_blank: "--選択してください--" %>
         </div>
         <div class="field">
           <h4>どんなお仕事ですか？職種や働く場所、業務内容を教えてください。</h4>
