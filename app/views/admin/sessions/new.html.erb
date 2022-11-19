@@ -1,6 +1,6 @@
 <div class="row mb-5">
   <div class="mx-auto">
-    <h3>ユーザーログイン</h3>
+    <h3>管理者ログイン</h3>
   </div>
 </div>
 
@@ -8,7 +8,7 @@
   <div class="mx-auto">
     <div class="col-md-12">
 
-<%= form_with model: @user, url: user_session_path do |f| %>
+<%= form_with model: @admin, url: admin_session_path do |f| %>
   <div class="field">
     <%= f.label :メールアドレス %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
@@ -28,7 +28,7 @@
 
 <div class="col mt-5 text-center">
   <div class="actions">
-    <%= f.submit "ログイン", class: "btn btn-dark" %>
+    <%= f.submit "管理者ログイン", class: "btn btn-dark" %>
   </div>
 </div>
 
@@ -40,6 +40,6 @@
 
 <div class="row">
   <div class="mx-auto">
-    <%= render "public/shared/links" %>
+    <%= render "admin/shared/links" %>
   </div>
 </div>
