@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+
+  # industries
+  resources :industries, only: [:index, :create, :edit, :update]
+  end
+
+
+
   devise_for :users, skip: [:passwords], controllers: {
   registrations: "public/registrations",
   sessions: 'public/sessions'
