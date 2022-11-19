@@ -1,0 +1,23 @@
+<div class="row mb-5">
+  <div class="mx-auto">
+    <h3>業界名編集</h3>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="mx-auto">
+    <div class="col-md-12">
+
+      <h4><%= industry.id %></h4>
+      <h4><%= industry.indsutry %></h4>
+
+      <div class="form-group form-inline">
+        <%= form_with model: @industry, url: admin_industry_path, method: :patch do |f| %>
+          <div class="col-md-6"><%= f.text_field :industry %></div>
+          <div class="col-md-6"><%= f.submit '変更を保存', class: "btn btn-dark" %></div>
+        <% end %>
+      </div>
+
+    </div>
+  </div>
+</div>
