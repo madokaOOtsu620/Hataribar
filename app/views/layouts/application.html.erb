@@ -23,14 +23,14 @@
           <div class="row">
             <div class="navbar-collapse collapse" id="navbarNavDropdown">
               <ul class="navbar-nav ml-auto">
-              <%# if user_signed_in? %>
+              <% if user_signed_in? %>
                 <li>
-                  <%#= link_to current_user, class: "nav-link text-light" do %>
+                  <%#= link_to mypage_path, class: "nav-link text-light" do %>
                   マイページ
                   <%# end %>
                 </li>
                 <li>
-                  <%#= link_to items_path, class: "nav-link text-light" do %>
+                  <%#= link_to posts_path, class: "nav-link text-light" do %>
                   ブックマーク一覧
                   <%# end %>
                 </li>
@@ -40,24 +40,19 @@
                   <% end %>
                 </li>
 
-              <%# elsif admin_signed_in? %>
+              <% elsif admin_signed_in? %>
                 <li>
-                  <%#= link_to current_user, class: "nav-link text-light" do %>
-                  マイページ
-                  <%# end %>
-                </li>
-                <li>
-                  <%#= link_to admin_customers_path, class: "nav-link text-light" do %>
-                  ブックマーク一覧
-                  <%# end %>
-                </li>
-                <li>
-                  <%#= link_to admin_root_path, class: "nav-link text-light" do %>
+                  <%#= link_to admin_users_path, class: "nav-link text-light" do %>
                   ユーザー一覧
                   <%# end %>
                 </li>
                 <li>
-                  <%#= link_to admin_genres_path, class: "nav-link text-light" do %>
+                  <%#= link_to admin_posts_path, class: "nav-link text-light" do %>
+                  投稿一覧
+                  <%# end %>
+                </li>
+                <li>
+                  <%#= link_to admin_industries_path, class: "nav-link text-light" do %>
                   業界一覧・編集
                   <%# end %>
                 </li>
@@ -67,7 +62,7 @@
                   <%# end %>
                 </li>
 
-              <%# else %>
+              <% else %>
                 <li>
                   <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
                   新規登録
@@ -78,7 +73,7 @@
                   ログイン
                   <% end %>
                 </li>
-              <%# end %>
+              <% end %>
               </ul>
             </div>
           </div>

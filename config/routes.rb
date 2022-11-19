@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-
+  root :to => 'homes#top'
   # industries
   resources :industries, only: [:index, :create, :edit, :update]
   end
@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   }
 
   scope module: :public do
-  root :to => 'public/homes#top'
+  root :to => 'homes#top'
 
   # users
   get 'users' => 'users#show', as: 'mypage'
