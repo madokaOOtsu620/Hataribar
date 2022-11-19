@@ -1,7 +1,15 @@
 Rails.application.routes.draw do
 
+  devise_for :admin, skip: [:registrations, :passwords], controllers: {
+  sessions: 'admin/sessions'
+  }
+
   namespace :admin do
   root :to => 'homes#top'
+
+  # users
+  get 'users/index' => 'users#index'
+
   # industries
   resources :industries, only: [:index, :create, :edit, :update]
   end

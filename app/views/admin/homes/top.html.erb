@@ -7,9 +7,9 @@
     <h3>体験談一覧</h3>
     <% @posts.each do |post| %>
 
-       <p><%= post.industry_id %></p>
-       <p><%= post.answer_what %></p>
-       <%= link_to "この体験談を見る >", post_path(post.id) %>
+      <p><%= post.industry_id %></p>
+      <p><%= post.answer_what %></p>
+      <%= link_to "この体験談を見る >", post_path(post.id) %>
 
     <% end %>
   </div>
