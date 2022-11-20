@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_19_185302) do
+ActiveRecord::Schema.define(version: 2022_11_20_060455) do
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 2022_11_19_185302) do
     t.integer "user_id"
     t.integer "industry_id"
     t.string "answer_what"
-    t.string "answer_employment_type"
+    t.string "answer_employment_status"
     t.string "answer_working_style"
     t.string "answer_income"
     t.string "answer_how"
