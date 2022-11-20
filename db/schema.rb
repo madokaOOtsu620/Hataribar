@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_11_20_060455) do
+ActiveRecord::Schema.define(version: 2022_11_20_134822) do
 
   create_table "admins", force: :cascade do |t|
     t.datetime "created_at", precision: 6, null: false
@@ -60,7 +60,7 @@ ActiveRecord::Schema.define(version: 2022_11_20_060455) do
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "user_name", default: "", null: false
-    t.integer "age_id", null: false
+    t.integer "age", null: false
     t.boolean "is_deleted", default: false, null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
