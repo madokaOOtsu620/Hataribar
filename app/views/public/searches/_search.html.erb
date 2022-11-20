@@ -1,0 +1,7 @@
+<div class="border border-secondary" style="background-color: #66cdaa;" >
+  <p>仕事内容から検索ができます</p>
+  <%= form_with url: search_path, local: true, method: :get do |f| %>
+    <%= f.text_field :keyword, placeholder: "(例)事務、営業、接客など" %>
+    <%= f.submit '検索' %>
+  <% end %>
+</div>

@@ -42,6 +42,8 @@ Rails.application.routes.draw do
 
   end
 
+  # searches
+  get '/search', to: 'searches#search'
 
   end
 
