@@ -2,6 +2,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
+    #@posts = @user.posts.all
   end
 
   def edit
@@ -11,7 +12,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to users_path
+      redirect_to mypage_path
     else
       @user = current_user
       render :edit

@@ -4,7 +4,8 @@ class Public::PostsController < ApplicationController
   before_action :permit_params, expect: :new
 
   def index
-    @posts = Post.all
+    @user = current_user
+    @posts = @user.posts
   end
 
   def show
@@ -65,7 +66,7 @@ class Public::PostsController < ApplicationController
     #end
 
     def permit_params
-      @temporarily = params.require('post').permit(:user_id, :industry_id, :answer_what, :answer_employment_type,
+      @temporarily = params.require('post').permit(:user_id, :industry_id, :answer_what, :answer_employment_status,
       :answer_working_style, :answer_income, :answer_how, :answer_skill, :answer_why,
       :answer_aptitude, :answer_future, :answer_advantage, :answer_free)
     end

@@ -15,13 +15,14 @@
         <tr><th>年齢</th><td><%= @user.age %>代</td></tr>
       </table>
     </div>
+
     <div>
       <h4>メニュー</h4>
-      <%= link_to "ユーザープロフィールを編集する", users_information_edit_path %>
-      <%#= link_to "自分の投稿一覧", posts_path %>
-      <%#= link_to "ブックマークした体験談一覧", bookmarks_path %>
-
-      <%#= link_to "退会する", users_withdraw_path %>
+      <%= link_to "ユーザープロフィールを編集する", mypage_edit_path %><br>
+      <%= link_to "自分の投稿一覧", posts_path %><br>
+      <%= link_to "ブックマークした体験談一覧", bookmarks_path %><br>
+      <br>
+      <%= link_to "退会する", users_confirm_path %><br>
 
     </div>
 
