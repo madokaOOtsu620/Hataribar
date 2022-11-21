@@ -10,14 +10,19 @@ Rails.application.routes.draw do
   # users
   get 'users/index' => 'users#index'
 
+  # posts
+  resources :posts, only: [:show, :destroy] do
+
+  # comments
+  resources :comments, only: [:destroy]
+
+  end
+
   # industries
   resources :industries, only: [:index, :create, :edit, :update]
-  
-  # posts
-  resources :posts, only: [:show, :destroy]
-  
+
   end
-  
+
 
 
   devise_for :users, skip: [:passwords], controllers: {
