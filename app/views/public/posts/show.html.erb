@@ -105,7 +105,7 @@
             <%= post.comment %><br>
             <%= comment.created_at.strftime('%Y/%m/%d') %>
           <% if comment_user == current_user %>
-            <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete %>
+            <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete, "data-confirm" => "コメントを削除しますか？" %>
           <% end %>
         <% end %>
         </div>
