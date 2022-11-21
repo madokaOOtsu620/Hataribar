@@ -25,14 +25,14 @@
               <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
-                  <%#= link_to mypage_path, class: "nav-link text-light" do %>
+                  <%= link_to mypage_path, class: "nav-link text-light" do %>
                   マイページ
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li>
-                  <%#= link_to posts_path, class: "nav-link text-light" do %>
+                  <%= link_to bookmarks_path, class: "nav-link text-light" do %>
                   ブックマーク一覧
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li>
                   <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
@@ -42,24 +42,24 @@
 
               <% elsif admin_signed_in? %>
                 <li>
-                  <%#= link_to admin_users_path, class: "nav-link text-light" do %>
+                  <%= link_to admin_users_index_path, class: "nav-link text-light" do %>
                   ユーザー一覧
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li>
-                  <%#= link_to admin_posts_path, class: "nav-link text-light" do %>
+                  <%= link_to admin_posts_path, class: "nav-link text-light" do %>
                   投稿一覧
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li>
-                  <%#= link_to admin_industries_path, class: "nav-link text-light" do %>
+                  <%= link_to admin_industries_path, class: "nav-link text-light" do %>
                   業界一覧・編集
-                  <%# end %>
+                  <% end %>
                 </li>
                 <li>
-                  <%#= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
+                  <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
                   ログアウト
-                  <%# end %>
+                  <% end %>
                 </li>
 
               <% else %>
