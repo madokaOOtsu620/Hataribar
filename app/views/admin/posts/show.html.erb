@@ -1,23 +1,17 @@
-<div class="row">
-  <div class="col-md-4">
-    <% render 'public/searches/search' %>
-  </div>
+<div class="row mb-5">
+  <h3>体験談</h3>
 
-  <div class="col-md-8">
-    <div class="row mb-5">
-    <h3>体験談</h3>
-
-    <% if @post.user.id == current_user.id %>
     <div class="col text-right">
       <div class="actions">
-        <strong><%= link_to "投稿内容を編集する", edit_post_path(@post.id) %></strong><br>
-        <strong><%= link_to "投稿を削除する", post_path(@post.id), method: :delete, "data-confirm" => "投稿を削除しますか？" %></strong>
+        <strong><%= link_to "投稿を削除する", post_path(@post.id), method: :delete, "data-confirm" => "この投稿を削除しますか？" %></strong>
       </div>
     </div>
-    <% end %>
 
     <div class="post bg-secondary">
 
+      <div class="field">
+        <strong>回答者：</strong><p><%= post.user_name %></p>
+      </div>
       <div class="field">
         <strong>回答者の年齢：</strong><p><%= post.user.age_id %></p>
       </div>
@@ -72,47 +66,14 @@
         </div>
 
     </div>
-    </div>
 
-    <div class="row">
-      <div class="col-md-6">
-      <% if @post.bookmarked?(current_user) %>
-        <p>
-          <%= link_to post_bookmarks_path(@post), method: :delete do %>
-            ♥<%= @post.bookmarks.count %>ブックマークを外す
-          <% end %>
-        </p>
-      <% else %>
-        <p>
-          <%= link_to post_bookmarks_path(@post), method: :post do %>
-            ♡<%= @post.bookmarks.count %>この体験談をブックマークする
-          <% end %>
-        </p>
+    <div>
+      <% @post.comments.each do |comment| %>
+        <%= post.comment %><br>
+        <%= post.user_name %><br>
+        <%= comment.created_at.strftime('%Y/%m/%d') %>
+        <%= link_to "コメント削除", admin_post_comment_path(comment.post,comment), method: :delete %>
       <% end %>
-      </div>
-
-      <div class="col-md-6">
-
-        <div>
-        <%= form_with model: [@post, @comment] do |f| %>
-          <%= f.text_area :comment, placeholder: "コメントはここに書いてください" %>
-          <%= f.submit "コメントを送信する" %>
-        <% end %>
-        </div>
-
-        <div>
-        <% @post.comments.each do |comment| %>
-            <%= post.comment %><br>
-            <%= comment.created_at.strftime('%Y/%m/%d') %>
-          <% if comment_user == current_user %>
-            <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete %>
-          <% end %>
-        <% end %>
-        </div>
-
-      </div>
     </div>
-
-  </div>
 
 </div>

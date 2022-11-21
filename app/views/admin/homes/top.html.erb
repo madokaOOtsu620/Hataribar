@@ -1,17 +1,26 @@
 <div class="row mb-5">
-  <div class="col-md-4">
-    <%# render 検索窓  %>
+  <div class="mx-auto">
+    <h2>体験談一覧</h2>
   </div>
+</div>
 
-  <div class="col-md-8">
-    <h3>体験談一覧</h3>
+<div class="row">
+
     <% @posts.each do |post| %>
-
-      <p><%= post.industry_id %></p>
-      <p><%= post.answer_what %></p>
-      <%= link_to "この体験談を見る >", post_path(post.id) %>
-
+      <div class="col-md-6">
+        <div class="post bg-secondary">
+          <%= link_to post_path(post.id) do %>
+          <div>
+            <h4>業種</h4>
+            <p><%= post.industry_id %></p>
+          </div>
+          <div>
+            <h4>仕事内容</h4>
+            <p><%= post.answer_what %></p>
+          </div>
+          <% end %>
+        </div>
+      </div>
     <% end %>
-  </div>
 
 </div>

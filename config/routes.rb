@@ -12,8 +12,12 @@ Rails.application.routes.draw do
 
   # industries
   resources :industries, only: [:index, :create, :edit, :update]
+  
+  # posts
+  resources :posts, only: [:show, :destroy]
+  
   end
-
+  
 
 
   devise_for :users, skip: [:passwords], controllers: {
@@ -35,7 +39,7 @@ Rails.application.routes.draw do
   post 'posts/confirm' => 'posts#confirm'
   post 'posts/back' => 'posts#back'
   post 'posts/complete' => 'posts#complete'
-  resources :posts, only: [:new, :index, :show, :edit, :update] do
+  resources :posts, only: [:new, :index, :show, :edit, :update, :destroy] do
 
   # bookmarks
   resource :bookmarks, only: [:create, :destroy]
