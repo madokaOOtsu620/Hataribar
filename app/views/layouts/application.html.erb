@@ -25,6 +25,11 @@
               <ul class="navbar-nav ml-auto">
               <% if user_signed_in? %>
                 <li>
+                  <%= link_to new_post_path, class: "nav-link text-light" do %>
+                  体験談を投稿する
+                  <% end %>
+                </li>
+                <li>
                   <%= link_to mypage_path, class: "nav-link text-light" do %>
                   マイページ
                   <% end %>

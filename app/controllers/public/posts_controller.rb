@@ -1,7 +1,7 @@
 class Public::PostsController < ApplicationController
 
   before_action :move_to_signed_in, except: [:index, :show]
-  before_action :permit_params, expect: :new
+  # before_action :post_params, expect: :new
 
   def index
     @user = current_user
@@ -17,21 +17,25 @@ class Public::PostsController < ApplicationController
     @post = Post.new
   end
 
-  def confirm
-    @post = Post.new(@temporarily)
-    if @post.invalid?
-      render :new
-    end
+  def create
+
   end
 
-  def back
-    @post = Post.new(@temporarily)
-    render :new
-  end
+  # def confirm
+  #   @post = Post.new(@temporarily)
+  #   if @post.invalid?
+  #     render :new
+  #   end
+  # end
 
-  def complete
-    Post.create!(@temporarily)
-  end
+  # def back
+  #   @post = Post.new(@temporarily)
+  #   render :new
+  # end
+
+  # def complete
+  #   Post.create!(@temporarily)
+  # end
 
   #def create
     #post = Post.new(post_params)
@@ -65,10 +69,13 @@ class Public::PostsController < ApplicationController
       #:answer_aptitude, :answer_future, :answer_advantage, :answer_free)
     #end
 
-    def permit_params
-      @temporarily = params.require('post').permit(:user_id, :industry_id, :answer_what, :answer_employment_status,
+    def post_params
+      params.require(:post).permit(:id, :user_id, :industry_id, :answer_what, :answer_employment_status,
       :answer_working_style, :answer_income, :answer_how, :answer_skill, :answer_why,
       :answer_aptitude, :answer_future, :answer_advantage, :answer_free)
+      # @temporarily = params.require('post').permit(:id, :user_id, :industry_id, :answer_what, :answer_employment_status,
+      # :answer_working_style, :answer_income, :answer_how, :answer_skill, :answer_why,
+      # :answer_aptitude, :answer_future, :answer_advantage, :answer_free)
     end
 
     def move_to_signed_in

@@ -41,10 +41,11 @@ Rails.application.routes.draw do
   patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_user'
 
   # posts
-  post 'posts/confirm' => 'posts#confirm'
-  post 'posts/back' => 'posts#back'
-  post 'posts/complete' => 'posts#complete'
-  resources :posts, only: [:new, :index, :show, :edit, :update, :destroy] do
+  # get 'posts/new' => 'posts#new'
+  # post 'posts/confirm' => 'posts#confirm'
+  # post 'posts/back' => 'posts#back'
+  # post 'posts/complete' => 'posts#complete'
+  resources :posts, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
 
   # bookmarks
   resource :bookmarks, only: [:create, :destroy]
