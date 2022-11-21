@@ -19,7 +19,7 @@ class Admin::IndustriesController < ApplicationController
   end
 
   def create
-    @indsutry = Industry.new(genre_params)
+    @industry = Industry.new(industry_params)
     if @industry.save
       redirect_to admin_industries_path
     else

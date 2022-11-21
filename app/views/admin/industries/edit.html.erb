@@ -8,8 +8,8 @@
   <div class="mx-auto">
     <div class="col-md-12">
 
-      <h4><%= industry.id %></h4>
-      <h4><%= industry.indsutry %></h4>
+      <h4>業界ID：<%= @industry.id %></h4>
+      <h4>業界名：<%= @industry.industry %></h4>
 
       <div class="form-group form-inline">
         <%= form_with model: @industry, url: admin_industry_path, method: :patch do |f| %>
