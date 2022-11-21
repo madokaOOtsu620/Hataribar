@@ -1,11 +1,28 @@
 <div class="row mb-5">
-  <div class="col-md-4">
-    <%# render 検索窓  %>
+  <div class="col-md-4 mb-5">
+    <div class="border border-secondary">
+      <div class="mb-5">
+        <p>体験談を仕事内容から検索する</p>
+        <%= form_with url: search_path, local: true, method: :get do |f| %>
+          <%= f.text_field :keyword, placeholder: "(例)事務、営業、接客など" %>
+          <%= f.submit '検索' %>
+        <% end %>
+      </div>
+
+      <div class="mb-5">
+        <p>体験談を業界から探す</p>
+        <% @industries.each do |industry| %>
+          <li class="list-group">
+            <%= industry.indsutry %>
+          </li>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="col-md-8">
 
-    <p>About</p>
+    <h4>About</h4>
     <h1>ハタリバとは？</h1>
     <br>
     <p>働く人たちの語り場と称して、職業体験を投稿・閲覧できる職業情報サイトです。</p>
