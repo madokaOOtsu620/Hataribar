@@ -4,17 +4,17 @@
   </div>
 
   <div class="col-md-8">
-    <h3>体験談一覧</h3>
-    <% @posts.each do |post| %>
-      <div class="post bg-secondary">
-        <%= link_to post_path(post.id) do %>
+    <h3>ブックマークした体験談一覧</h3>
+    <% @bookmarks.each do |bookmark| %>
+      <div class="post bg-secondary" >
+        <%= link_to post_path(bookmark.post) do %>
         <div>
           <h4>業種</h4>
-          <p><%= post.industry_id %></p>
+          <p><%= bookmark.post.industry_id %></p>
         </div>
         <div>
           <h4>仕事内容</h4>
-          <p><%= post.answer_what %></p>
+          <p><%= bookmark.post.answer_what %></p>
         </div>
         <% end %>
       </div>
