@@ -1,7 +1,16 @@
 class Public::PostsController < ApplicationController
 
-  before_action :move_to_signed_in
+  before_action :move_to_signed_in, except: [:index, :show]
   before_action :permit_params, expect: :new
+
+  def index
+    @posts = Post.all
+  end
+
+  def show
+    @post = Post.find(params[:id])
+    @comment = Comment.new
+  end
 
   def new
     @post = Post.new
@@ -29,16 +38,6 @@ class Public::PostsController < ApplicationController
     #redirect_to post_path(post.id)
   #end
 
-
-  def index
-    @posts = Post.all
-  end
-
-  def show
-    @post = Post.find(params[:id])
-    @comment = Comment.new
-  end
-
   def edit
     @post = Post.find(params[:id])
   end
@@ -47,6 +46,12 @@ class Public::PostsController < ApplicationController
     post = Post.find(params[:id])
     post.update(post_params)
     redirect_to post_path(post.id)
+  end
+
+  def destroy
+    post = Post.find(params[:id])
+    post.destroy
+    redirect_to mypage_path
   end
 
 
