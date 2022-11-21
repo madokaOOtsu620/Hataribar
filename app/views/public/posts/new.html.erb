@@ -8,7 +8,8 @@
   <div class="mx-auto">
     <div class="col-md-12">
 
-      <%= form_with model: @post, method: :post, url: posts_comfirm_path do |f| %>
+      <%#= form_with model: @post, method: :post, url: posts_comfirm_path do |f| %>
+      <%= form_with model: @post do |f| %>
 
         <div class="field">
           <h4>業種</h4>
@@ -61,7 +62,9 @@
 
         <div class="col mt-5 text-center">
           <div class="actions">
-            <%= f.submit "確認画面へ進む", class: "btn btn-dark" %>
+            <p>※投稿内容は後から編集可能です。</p>
+            <%= f.submit "投稿する", class: "btn btn-dark" %>
+            <%#= f.submit "確認画面へ進む", class: "btn btn-dark" %>
           </div>
         </div>
 
