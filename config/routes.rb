@@ -38,7 +38,7 @@ Rails.application.routes.draw do
   get 'users/information/edit' => 'users#edit', as: 'mypage_edit'
   patch 'users/information' => 'users#update'
   get 'users/confirm' => 'users#confirm'
-  patch 'users/withdraw' => 'users#withdraw'
+  patch 'users/:id/withdraw' => 'users#withdraw', as: 'withdraw_user'
 
   # posts
   post 'posts/confirm' => 'posts#confirm'
