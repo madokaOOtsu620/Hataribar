@@ -10,8 +10,8 @@
 
       <% @industries.each do |industry| %>
         <div class="form-group form-inline">
-          <div class="col-md-6"><strong><%= industry.indsutry %></strong></div>
-          <div class="col-md-6"><%= link_to "業界名を編集する", edit_admin_indusrtry_path(industry.id) %></div>
+          <div class="col-md-6"><strong><%= industry.industry %></strong></div>
+          <div class="col-md-6"><%= link_to "業界名を編集する", edit_admin_industry_path(industry.id) %></div>
         </div>
       <% end %>
 
