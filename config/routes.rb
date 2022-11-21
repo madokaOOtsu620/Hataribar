@@ -37,10 +37,16 @@ Rails.application.routes.draw do
   post 'posts/complete' => 'posts#complete'
   resources :posts, only: [:new, :index, :show, :edit, :update] do
 
+  # bookmarks
+  resource :bookmarks, only: [:create, :destroy]
+
   # commets 親のresourcesであるpostsにネストする
   resources :comments, only: [:create, :destroy]
 
   end
+
+  # bookmarks一覧ページ
+  get 'bookmarks' => 'bookmarks#index'
 
   # searches
   get '/search', to: 'searches#search'

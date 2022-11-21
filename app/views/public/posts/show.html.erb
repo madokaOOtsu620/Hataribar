@@ -4,6 +4,7 @@
   </div>
 
   <div class="col-md-8">
+    <div class="row mb-5">
     <h3>体験談</h3>
 
     <% if @post.user.id == current_user.id %>
@@ -71,22 +72,45 @@
         </div>
 
     </div>
-
-    <div>
-      <%= form_with model: [@post, @comment] do |f| %>
-        <%= f.text_area :comment, placeholder: "コメントはここに書いてください" %>
-        <%= f.submit "コメントを送信する" %>
-      <% end %>
     </div>
 
-    <div>
-      <% @post.comments.each do |comment| %>
-        <%= post.comment %><br>
-        <%= comment.created_at.strftime('%Y/%m/%d') %>
-        <% if comment_user == current_user %>
-          <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete %>
-        <% end %>
+    <div class="row">
+      <div class="col-md-6">
+      <% if @post.bookmarked?(current_user) %>
+        <p>
+          <%= link_to post_bookmarks_path(@post), method: :delete do %>
+            ♥<%= @post.bookmarks.count %>ブックマークを外す
+          <% end %>
+        </p>
+      <% else %>
+        <p>
+          <%= link_to post_bookmarks_path(@post), method: :post do %>
+            ♡<%= @post.bookmarks.count %>この体験談をブックマークする
+          <% end %>
+        </p>
       <% end %>
+      </div>
+
+      <div class="col-md-6">
+
+        <div>
+        <%= form_with model: [@post, @comment] do |f| %>
+          <%= f.text_area :comment, placeholder: "コメントはここに書いてください" %>
+          <%= f.submit "コメントを送信する" %>
+        <% end %>
+        </div>
+
+        <div>
+        <% @post.comments.each do |comment| %>
+            <%= post.comment %><br>
+            <%= comment.created_at.strftime('%Y/%m/%d') %>
+          <% if comment_user == current_user %>
+            <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete %>
+          <% end %>
+        <% end %>
+        </div>
+
+      </div>
     </div>
 
   </div>
