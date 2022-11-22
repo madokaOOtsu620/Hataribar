@@ -1,22 +1,30 @@
 <div class="row mb-5">
   <div class="col-md-4">
-    <% render 'public/searches/search' %>
+    <%= render 'public/searches/search' %>
+    <%= render 'public/industries/index', industries: @industries %>
   </div>
 
   <div class="col-md-8">
     <% if @posts == [] %>
 
-      <h3>お探しのキーワードでは投稿が見つかりませんでした。</h3>
+      <h3>お探しのキーワードでは体験談が見つかりませんでした。</h3>
 
     <% else %>
 
       <h3>"<%= @keyword %>"による検索結果</h3>
       <% @posts.each do |post| %>
-
-        <p><%= post.industry_id %></p>
-        <p><%= post.answer_what %></p>
-        <%= link_to "この体験談を見る >", post_path(post.id) %>
-
+      <div class="post bg-secondary">
+        <%= link_to post_path(post.id) do %>
+        <div>
+          <h4>業種</h4>
+          <p><%= post.industry_id %></p>
+        </div>
+        <div>
+          <h4>仕事内容</h4>
+          <p><%= post.answer_what %></p>
+        </div>
+        <% end %>
+      </div>
       <% end %>
 
     <% end %>

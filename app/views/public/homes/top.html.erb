@@ -2,20 +2,22 @@
   <div class="col-md-4 mb-5">
     <div class="border border-secondary">
       <div class="mb-5">
-        <p>体験談を仕事内容から検索する</p>
-        <%= form_with url: search_path, local: true, method: :get do |f| %>
-          <%= f.text_field :keyword, placeholder: "(例)事務、営業、接客など" %>
-          <%= f.submit '検索' %>
-        <% end %>
+        <%= render 'public/searches/search' %>
+        <!--<p>体験談を仕事内容から検索する</p>-->
+        <!--<%#= form_with url: search_path, local: true, method: :get do |f| %>-->
+        <!--  <%#= f.text_field :keyword, placeholder: "(例)事務、営業、接客など" %>-->
+        <!--  <%#= f.submit '検索' %>-->
+        <!--<%# end %>-->
       </div>
 
       <div class="mb-5">
-        <p>体験談を業界から探す</p>
-        <% @industries.each do |industry| %>
-          <li class="list-group">
-            <%= industry.industry %>
-          </li>
-        <% end %>
+        <%= render 'public/industries/index', industries: @industries %>
+        <!--<p>体験談を業界から探す</p>-->
+        <!--<%# @industries.each do |industry| %>-->
+        <!--  <li class="list-group">-->
+        <!--    <%#= industry.industry %>-->
+        <!--  </li>-->
+        <!--<%# end %>-->
       </div>
     </div>
   </div>

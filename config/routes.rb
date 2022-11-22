@@ -61,6 +61,9 @@ Rails.application.routes.draw do
   # searches
   get '/search', to: 'searches#search'
 
+  # industries
+  resources :industries, only: [:show]
+
   end
 
 

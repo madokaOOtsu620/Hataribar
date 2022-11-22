@@ -5,15 +5,14 @@
   </div>
 
   <div class="col-md-8">
-    <% if @posts == [] %>
+    <% if @industry.posts == [] %>
 
-      <h3>まだ投稿した体験談はありません。</h3>
-      <h3>もし体験談をお持ちでしたら、ぜひ<%= link_to "こちら",new_post_path %>からあなたの体験談をお寄せください。</h3>
+      <h3>お探しの業界に関する体験談は見つかりませんでした。</h3>
 
     <% else %>
 
-      <h3>投稿した体験談一覧</h3>
-      <% @posts.each do |post| %>
+      <h3>"<%= @industry %>"による検索結果</h3>
+      <% @industry.posts.each do |post| %>
       <div class="post bg-secondary">
         <%= link_to post_path(post.id) do %>
         <div>

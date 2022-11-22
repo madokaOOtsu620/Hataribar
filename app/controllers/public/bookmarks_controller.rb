@@ -16,6 +16,8 @@ class Public::BookmarksController < ApplicationController
 
   def index
     @bookmarks = Bookmark.where(user_id: current_user.id)
+    # 業界検索テンプレート用
+    @industries = Industry.all
   end
 
 end
