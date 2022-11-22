@@ -1,6 +1,17 @@
-<div class="row">
-  <div class="col-md-4">
-    <% render 'public/searches/search' %>
+<div class="row mb-5">
+
+  <div class="col-md-4 mb-5">
+    <div class="border border-secondary">
+
+      <div class="mb-5">
+        <%= render 'public/searches/search' %>
+      </div>
+
+      <div class="mb-5">
+        <%= render 'public/industries/index', industries: @industries %>
+      </div>
+
+    </div>
   </div>
 
   <div class="col-md-8">
@@ -81,13 +92,13 @@
       <% if @post.bookmarked_by?(current_user) %>
         <p>
           <%= link_to post_bookmarks_path(@post), method: :delete do %>
-            ♥<%= @post.bookmarks.count %>ブックマークを外す
+            ♥<%= @post.bookmarks.count %> | ブックマークを外す
           <% end %>
         </p>
       <% else %>
         <p>
           <%= link_to post_bookmarks_path(@post), method: :post do %>
-            ♡<%= @post.bookmarks.count %>この体験談をブックマークする
+            ♡<%= @post.bookmarks.count %> | この体験談をブックマークする
           <% end %>
         </p>
       <% end %>
@@ -104,9 +115,10 @@
 
         <div>
         <% @post.comments.each do |comment| %>
-            <%= post.comment %><br>
-            <%= comment.created_at.strftime('%Y/%m/%d') %>
-          <% if comment_user == current_user %>
+            <%= comment.comment %><br>
+            by <%= comment.user.user_name %> |
+            <%= comment.created_at.strftime('%Y/%m/%d') %> |
+          <% if comment.user == current_user %>
             <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete, "data-confirm" => "コメントを削除しますか？" %>
           <% end %>
         <% end %>
