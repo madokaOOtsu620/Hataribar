@@ -22,7 +22,9 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-
+    post = Post.new(post_params)
+    post.save
+    redirect_to post_path(post.id)
   end
 
   # def confirm
