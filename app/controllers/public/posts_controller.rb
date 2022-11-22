@@ -15,6 +15,8 @@ class Public::PostsController < ApplicationController
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
+    # 業界検索テンプレート用
+    @industries = Industry.all
   end
 
   def new
