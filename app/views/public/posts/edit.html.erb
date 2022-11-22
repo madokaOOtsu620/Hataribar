@@ -8,7 +8,7 @@
   <div class="mx-auto">
     <div class="col-md-12">
 
-      <%= form_with model: @post, url: posts_path(@post.id), method: :patch do |f| %>
+      <%= form_with model: @post, url: post_path(@post), method: :patch do |f| %>
 
         <div class="field">
           <h4>業種</h4>
@@ -20,7 +20,7 @@
         </div>
         <div class="field">
           <h4>雇用形態は？</h4>
-            <%= f.text_area :answer_employment_type %>
+            <%= f.text_area :answer_employment_status %>
         </div>
         <div class="field">
           <h4>勤務形態は？</h4>

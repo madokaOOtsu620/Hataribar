@@ -1,6 +1,6 @@
 class Public::PostsController < ApplicationController
 
-  before_action :move_to_signed_in, except: [:show]
+  # before_action :move_to_signed_in, except: [:show]
   # before_action :post_params, expect: :new
 
   # この場合のindexは、ユーザーが自分の投稿を見る時に使用。
@@ -22,9 +22,10 @@ class Public::PostsController < ApplicationController
   end
 
   def create
-    post = Post.new(post_params)
-    post.save
-    redirect_to post_path(post.id)
+    @post = Post.new(post_params)
+    @post.user_id = current_user.id
+    @post.save!
+    redirect_to posts_path
   end
 
   # def confirm
@@ -54,9 +55,9 @@ class Public::PostsController < ApplicationController
   end
 
   def update
-    post = Post.find(params[:id])
-    post.update(post_params)
-    redirect_to post_path(post.id)
+    @post = Post.find(params[:id])
+    @post.update(post_params)
+    redirect_to post_path(@post)
   end
 
   def destroy
@@ -76,7 +77,7 @@ class Public::PostsController < ApplicationController
     #end
 
     def post_params
-      params.require(:post).permit(:id, :user_id, :industry_id, :answer_what, :answer_employment_status,
+      params.require(:post).permit(:industry_id, :answer_what, :answer_employment_status,
       :answer_working_style, :answer_income, :answer_how, :answer_skill, :answer_why,
       :answer_aptitude, :answer_future, :answer_advantage, :answer_free)
       # @temporarily = params.require('post').permit(:id, :user_id, :industry_id, :answer_what, :answer_employment_status,
@@ -84,12 +85,10 @@ class Public::PostsController < ApplicationController
       # :answer_aptitude, :answer_future, :answer_advantage, :answer_free)
     end
 
-    def move_to_signed_in
-      unless user_signed_in?
-        redirect_to new_user_session_path
-      end
-    end
-
-
+    # def move_to_signed_in
+    #   unless user_signed_in?
+    #     redirect_to new_user_session_path
+    #   end
+    # end
 
 end
