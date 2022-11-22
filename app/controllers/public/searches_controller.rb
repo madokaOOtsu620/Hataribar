@@ -2,6 +2,8 @@ class Public::SearchesController < ApplicationController
 
   def search
     @posts = Post.search(params[:keyword])
+    # 業界検索テンプレート用
+    @industries = Industry.all
   end
 
 #   def search

@@ -1,0 +1,8 @@
+<p>体験談を業界から探す</p>
+<% @industries.each do |industry| %>
+  <%= link_to industry_path %>
+    <li class="list-group">
+      <%= industry.industry %>
+    </li>
+  <% end %>
+<% end %>

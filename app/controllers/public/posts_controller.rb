@@ -1,11 +1,15 @@
 class Public::PostsController < ApplicationController
 
-  before_action :move_to_signed_in, except: [:index, :show]
+  before_action :move_to_signed_in, except: [:show]
   # before_action :post_params, expect: :new
 
+  # この場合のindexは、ユーザーが自分の投稿を見る時に使用。
+  # 検索結果一覧や、業界からの検索結果一覧は別ビューを用意。
   def index
     @user = current_user
     @posts = @user.posts
+    # 業界検索テンプレート用
+    @industries = Industry.all
   end
 
   def show
