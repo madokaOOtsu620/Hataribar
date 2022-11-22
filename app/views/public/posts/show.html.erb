@@ -15,68 +15,70 @@
       </div>
     </div>
     <% end %>
+    </div>
 
-    <div class="post bg-secondary">
+    <div class="row mb-5 bg-light">
+      <div class="col-md-12">
 
       <div class="field">
-        <strong>回答者の年齢：</strong><p><%= post.user.age_id %></p>
+        <strong>回答者の年齢：</strong><p><%= @post.user.age %>代</p>
       </div>
 
         <div class="field">
-          <h4>業種</h4>
-          <p><%= post.industry %></p>
+          <h4><業種></h4>
+          <p><%= @post.industry.industry %></p>
         </div>
         <div class="field">
-          <h4>仕事内容</h4>
-          <p><%= post.answer_what %></p>
+          <h4><仕事内容></h4>
+          <p><%= @post.answer_what %></p>
         </div>
         <div class="field">
-          <h4>雇用形態</h4>
-          <p><%= post.answer_employment_type %></p>
+          <h4><雇用形態></h4>
+          <p><%= @post.answer_employment_status %></p>
         </div>
         <div class="field">
-          <h4>勤務形態</h4>
-          <p><%= post.answer_working_style %></p>
+          <h4><勤務形態></h4>
+          <p><%= @post.answer_working_style %></p>
         </div>
         <div class="field">
-          <h4>収入面</h4>
-          <p><%= post.answer_income %></p>
+          <h4><収入面></h4>
+          <p><%= @post.answer_income %></p>
         </div>
         <div class="field">
-          <h4>この仕事に就くルート</h4>
-          <p><%= post.answer_how %></p>
+          <h4><この仕事に就くルート></h4>
+          <p><%= @post.answer_how %></p>
         </div>
         <div class="field">
-          <h4>必要な資格やスキル</h4>
-          <p><%= post.answer_skill %></p>
+          <h4><必要な資格やスキル></h4>
+          <p><%= @post.answer_skill %></p>
         </div>
         <div class="field">
-          <h4>なぜこの仕事をやろうと思ったか？</h4>
-          <p><%= post.answer_why %></p>
+          <h4><なぜこの仕事をやろうと思ったか？></h4>
+          <p><%= @post.answer_why %></p>
         </div>
         <div class="field">
-          <h4>適性、性格による向き不向き</h4>
-          <p><%= post.answer_aptitude %></p>
+          <h4><適性、性格による向き不向き></h4>
+          <p><%= @post.answer_aptitude %></p>
         </div>
         <div class="field">
-          <h4>この仕事の将来性は？</h4>
-          <p><%= post.answer_future %></p>
+          <h4><この仕事の将来性は？></h4>
+          <p><%= @post.answer_future %></p>
         </div>
         <div class="field">
-          <h4>メリット、やりがい</h4>
-          <p><%= post.answer_advantage %></p>
+          <h4><メリット、やりがい></h4>
+          <p><%= @post.answer_advantage %></p>
         </div>
         <div class="field">
-          <h4>最後に</h4>
-          <p><%= post.answer_free %></p>
+          <h4><最後に></h4>
+          <p><%= @post.answer_free %></p>
         </div>
 
-    </div>
+      </div>
     </div>
 
     <div class="row">
       <div class="col-md-6">
-      <% if @post.bookmarked?(current_user) %>
+      <% if @post.bookmarked_by?(current_user) %>
         <p>
           <%= link_to post_bookmarks_path(@post), method: :delete do %>
             ♥<%= @post.bookmarks.count %>ブックマークを外す

@@ -1,16 +1,16 @@
 <div class="row mb-5">
-  
+
   <div class="col-md-4 mb-5">
     <div class="border border-secondary">
-      
+
       <div class="mb-5">
         <%= render 'public/searches/search' %>
       </div>
-      
+
       <div class="mb-5">
         <%= render 'public/industries/index', industries: @industries %>
       </div>
-      
+
     </div>
   </div>
 
@@ -23,14 +23,14 @@
 
       <h3>"<%= @keyword %>"による検索結果</h3>
       <% @posts.each do |post| %>
-      <div class="post bg-secondary">
+      <div class="post bg-light">
         <%= link_to post_path(post.id) do %>
         <div>
-          <h4>業種</h4>
-          <p><%= post.industry_id %></p>
+          <h4><業種></h4>
+          <p><%= post.industry %></p>
         </div>
         <div>
-          <h4>仕事内容</h4>
+          <h4><仕事内容></h4>
           <p><%= post.answer_what %></p>
         </div>
         <% end %>
