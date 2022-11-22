@@ -1,7 +1,17 @@
 <div class="row mb-5">
-  <div class="col-md-4">
-    <%= render 'public/searches/search' %>
-    <%= render 'public/industries/index', industries: @industries %>
+  
+  <div class="col-md-4 mb-5">
+    <div class="border border-secondary">
+      
+      <div class="mb-5">
+        <%= render 'public/searches/search' %>
+      </div>
+      
+      <div class="mb-5">
+        <%= render 'public/industries/index', industries: @industries %>
+      </div>
+      
+    </div>
   </div>
 
   <div class="col-md-8">
