@@ -6,11 +6,100 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+      <nav class="navbar navbar-expand-sm bg-dark navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="/">
+            <img src="assets/Hataribar.png" alt="" width="300" height="80">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="true" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="row">
+            <div class="navbar-collapse collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav ml-auto">
+              <% if user_signed_in? %>
+                <li>
+                  <%= link_to new_post_path, class: "nav-link text-light" do %>
+                  体験談を投稿する
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to mypage_path, class: "nav-link text-light" do %>
+                  マイページ
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to bookmarks_path, class: "nav-link text-light" do %>
+                  ブックマーク一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_user_session_path, method: :delete, class: "nav-link text-light" do %>
+                  ログアウト
+                  <% end %>
+                </li>
+
+              <% elsif admin_signed_in? %>
+                <li>
+                  <%= link_to admin_users_index_path, class: "nav-link text-light" do %>
+                  ユーザー一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_root_path, class: "nav-link text-light" do %>
+                  体験談一覧
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to admin_industries_path, class: "nav-link text-light" do %>
+                  業界一覧・編集
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to destroy_admin_session_path, method: :delete, class: "nav-link text-light" do %>
+                  ログアウト
+                  <% end %>
+                </li>
+
+              <% else %>
+                <li>
+                  <%= link_to new_user_registration_path, class: "nav-link text-light" do %>
+                  新規登録
+                  <% end %>
+                </li>
+                <li>
+                  <%= link_to new_user_session_path, class: "nav-link text-light" do %>
+                  ログイン
+                  <% end %>
+                </li>
+              <% end %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <div class="container my-5">
+        <%= yield %>
+      </div>
+    </main>
+
+    <footer>
+      <div class="container">
+        <div class="row">
+          <div class="mx-auto">
+            <p>©️ 2022 RJeholge</p>
+          </div>
+        </div>
+      </div>
+    </footer>
   </body>
 </html>

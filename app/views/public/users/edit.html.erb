@@ -1,0 +1,38 @@
+<div class="row mb-5">
+  <div class="mx-auto">
+    <h3>ユーザープロフィール編集</h3>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="mx-auto">
+    <div class="col-md-12">
+
+      <%= form_with model: @user, url: users_information_path, method: :patch, local: true do |f| %>
+
+      <div class="field">
+        <%= f.label :ユーザー名 %><br />
+        <%= f.text_field :user_name, autofocus: true, autocomplete: "user_name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :メールアドレス %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :年齢 %>
+        <%= f.select :age, [10, 20, 30, 40, 50, 60, 70] %>代
+      </div>
+
+      <div class="col mt-5 text-center">
+        <div class="actions">
+          <%= f.submit "編集内容を保存", class: "btn btn-dark" %>
+        </div>
+      </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

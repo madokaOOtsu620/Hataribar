@@ -1,0 +1,5 @@
+<p>体験談を仕事内容から探す</p>
+<%= form_with url: search_path, local: true, method: :get do |f| %>
+  <%= f.text_field :keyword, placeholder: "(例)事務、営業、接客など" %>
+  <%= f.submit '検索' %>
+<% end %>

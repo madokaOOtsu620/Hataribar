@@ -1,0 +1,37 @@
+<div class="row mb-5">
+  <div class="mx-auto">
+    <h3>ユーザー一覧</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="mx-auto">
+
+      <table class='table'>
+        <thead>
+          <tr>
+            <th>ユーザーID</th>
+            <th>ユーザー名</th>
+            <th>年齢</th>
+            <th>ステータス</th>
+          </tr>
+        </thead>
+        <tbody>
+        <% @users.each do |user| %>
+          <tr>
+            <td><%= user.id %></p>
+            <td><%= user.user_name %></p>
+            <td><%= user.age %>代</p>
+            <td>
+            <% if user.is_deleted == false %>
+              <p class="status-text">有効</p>
+            <% else %>
+              <p class="status-text">退会済</p>
+            <% end %>
+            </td>
+          </tr>
+        <% end %>
+        </tbody>
+
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<div class="row mb-5">
+  <div class="mx-auto">
+    <h3>体験談の編集</h3>
+  </div>
+</div>
+
+<div class="row mb-5">
+  <div class="mx-auto">
+    <div class="col-md-12">
+
+      <%= form_with model: @post, url: post_path(@post), method: :patch do |f| %>
+
+        <div class="field">
+          <h4>業種</h4>
+            <%= f.collection_select :industry_id, Industry.all, :id, :industry, include_blank: "--選択してください--" %>
+        </div>
+        <div class="field">
+          <h4>どんなお仕事ですか？職種や働く場所、業務内容を教えてください。</h4>
+            <%= f.text_area :answer_what %>
+        </div>
+        <div class="field">
+          <h4>雇用形態は？</h4>
+            <%= f.text_area :answer_employment_status %>
+        </div>
+        <div class="field">
+          <h4>勤務形態は？</h4>
+            <%= f.text_area :answer_working_style %>
+        </div>
+        <div class="field">
+          <h4>年収(額面の金額)や手取りの金額を教えてください。</h4>
+            <%= f.text_area :answer_income %>
+        </div>
+        <div class="field">
+          <h4>その仕事にはどうやってなりましたか？学歴や経歴などを教えてください。</h4>
+            <%= f.text_area :answer_how %>
+        </div>
+        <div class="field">
+          <h4>その仕事をする為に必要な資格やスキルはありますか？</h4>
+            <%= f.text_area :answer_skill %>
+        </div>
+        <div class="field">
+          <h4>なぜその仕事をやろうと思いましたか？</h4>
+            <%= f.text_area :answer_why %>
+        </div>
+        <div class="field">
+          <h4>その仕事に向いている人の特徴はありますか？自分自身の性格や、周りにいた方はどんな感じでしたか？</h4>
+            <%= f.text_area :answer_aptitude %>
+        </div>
+        <div class="field">
+          <h4>その仕事の将来性をどう考えますか？</h4>
+            <%= f.text_area :answer_future %>
+        </div>
+        <div class="field">
+          <h4>その仕事をやっていて良かったこと、メリットだと感じたこと、やりがいなどを教えてください。</h4>
+            <%= f.text_area :answer_advantage %>
+        </div>
+        <div class="field">
+          <h4>最後に、これからその仕事をやろうとする人へのコメントなど自由に意見をください。</h4>
+            <%= f.text_area :answer_free %>
+        </div>
+
+        <div class="col mt-5 text-center">
+          <div class="actions">
+            <%= f.submit "以上の内容で保存", class: "btn btn-dark" %>
+          </div>
+        </div>
+
+      <% end %>
+
+    </div>
+  </div>
+</div>

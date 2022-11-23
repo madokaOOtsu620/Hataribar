@@ -1,0 +1,33 @@
+<div class="row mb-5">
+  <div class="col-md-4">
+    <%# render 検索窓  %>
+  </div>
+
+  <div class="col-md-8">
+    <h3>マイページ</h3>
+
+
+    <div>
+      <h4>プロフィール</h4>
+      <table>
+        <tr><th>ユーザー名</th><td><%= @user.user_name %></td></tr>
+        <tr><th>メールアドレス</th><td><%= @user.email  %></td></tr>
+        <tr><th>年齢</th><td><%= @user.age %>代</td></tr>
+      </table>
+    </div>
+
+    <div>
+      <h4>メニュー</h4>
+      <%= link_to "ユーザープロフィールを編集する", mypage_edit_path %><br>
+      <%= link_to "自分の投稿一覧", posts_path %><br>
+      <%= link_to "ブックマークした体験談一覧", bookmarks_path %><br>
+      <br>
+      <%= link_to "退会する", users_confirm_path %><br>
+
+    </div>
+
+  </div>
+
+
+
+</div>
