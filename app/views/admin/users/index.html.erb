@@ -13,6 +13,7 @@
             <th>ユーザーID</th>
             <th>ユーザー名</th>
             <th>年齢</th>
+            <th>ステータス</th>
           </tr>
         </thead>
         <tbody>
@@ -21,6 +22,13 @@
             <td><%= user.id %></p>
             <td><%= user.user_name %></p>
             <td><%= user.age %>代</p>
+            <td>
+            <% if user.is_deleted == false %>
+              <p class="status-text">有効</p>
+            <% else %>
+              <p class="status-text">退会済</p>
+            <% end %>
+            </td>
           </tr>
         <% end %>
         </tbody>
