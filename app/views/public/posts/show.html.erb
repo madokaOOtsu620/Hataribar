@@ -18,7 +18,7 @@
     <div class="row mb-5">
     <h3>体験談</h3>
 
-    <% if @post.user.id == current_user.id %>
+    <% if @post.user == current_user %>
     <div class="col text-right">
       <div class="actions">
         <strong><%= link_to "投稿内容を編集する", edit_post_path(@post.id) %></strong><br>
@@ -115,12 +115,14 @@
 
         <div>
         <% @post.comments.each do |comment| %>
+          <div class="mb-3">
             <%= comment.comment %><br>
             by <%= comment.user.user_name %> |
             <%= comment.created_at.strftime('%Y/%m/%d') %> |
           <% if comment.user == current_user %>
             <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete, "data-confirm" => "コメントを削除しますか？" %>
           <% end %>
+          </div>
         <% end %>
         </div>
 

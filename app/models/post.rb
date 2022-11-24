@@ -17,7 +17,7 @@ class Post < ApplicationRecord
 
   # ブックマークメソッド
   def bookmarked_by?(user)
-    bookmarks.exists?(user_id: user.id)
+    bookmarks.where(user_id: user).exists?
   end
 
 end
