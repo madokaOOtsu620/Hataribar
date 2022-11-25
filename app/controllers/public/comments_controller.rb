@@ -1,4 +1,5 @@
 class Public::CommentsController < ApplicationController
+  before_action :move_to_signed_in
 
   def create
     post = Post.find(params[:post_id])
@@ -18,6 +19,12 @@ class Public::CommentsController < ApplicationController
 
   def comment_params
     params.require(:comment).permit(:comment)
+  end
+
+  def move_to_signed_in
+    unless user_signed_in?
+      redirect_to new_user_session_path, notice: '！ ブックマークやコメントをしたい場合はログインが必要です。 ！'
+    end
   end
 
 end
