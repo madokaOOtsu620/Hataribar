@@ -13,7 +13,7 @@ class Public::UsersController < ApplicationController
   def update
     @user = current_user
     if @user.update(user_params)
-      redirect_to mypage_path
+      redirect_to mypage_path, notice: "ユーザー情報を変更しました！"
     else
       @user = current_user
       render :edit
@@ -56,7 +56,7 @@ class Public::UsersController < ApplicationController
     # end
 
     def user_params
-      params.require(:user).permit(:user_id, :email, :encrypted_password, :age, :is_deleted)
+      params.require(:user).permit(:user_id, :user_name, :email, :encrypted_password, :age, :is_deleted)
     end
 
 end

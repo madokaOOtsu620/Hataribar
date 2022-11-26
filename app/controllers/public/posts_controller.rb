@@ -63,13 +63,13 @@ class Public::PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     @post.update(post_params)
-    redirect_to post_path(@post)
+    redirect_to post_path(@post), notice: "内容を更新しました！"
   end
 
   def destroy
     post = Post.find(params[:id])
     post.destroy
-    redirect_to mypage_path
+    redirect_to mypage_path, notice: "投稿を削除しました！"
   end
 
 
