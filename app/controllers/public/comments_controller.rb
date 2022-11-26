@@ -23,7 +23,7 @@ class Public::CommentsController < ApplicationController
 
   def move_to_signed_in
     unless user_signed_in?
-      redirect_to new_user_session_path, notice: '！ ブックマークやコメントをしたい場合はログインが必要です。 ！'
+      redirect_to new_user_session_path, notice: 'ブックマークやコメントをしたい場合はログインが必要です！'
     end
   end
 

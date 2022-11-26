@@ -39,10 +39,9 @@ class Public::SessionsController < Devise::SessionsController
     @user = User.find_by(name: params[:user][:email])
     if @user
       if @user.valid_password?(params[:user][:encrypted_password]) && (@user.is_deleted == false)
-        redirect_to new_user_registration_path
-        flash[:notice] = "お探しのアカウントは退会済みです。再度ご登録をしてご利用ください"
+        redirect_to new_user_registration_path, notice: "お探しのアカウントは退会済みです。再度ご登録をしてご利用ください"
       else
-        flash[:notice] = "項目を入力してください。"
+        render :new
       end
     end
   end

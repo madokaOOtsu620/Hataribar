@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー情報
+      post: 投稿内容
+    attributes:
+      user:
+        user_name: ユーザー名
+        email: メールアドレス
+        password: パスワード
+      post:
+        industry: 業界
+        answer_what: 業務内容
+        answer_employment_status: 雇用形態
+        answer_working_style: 勤務形態
+        answer_income: 収入面
+        answer_how: この仕事のなり方
+        answer_skill: 必要な資格やスキル
+        answer_why: なぜこの仕事をやろうと思ったか？
+        answer_aptitude: 向いている人の特徴
+        answer_future: 将来性
+        answer_advantage: メリット、やりがい
+        answer_free: フリー記述(コメント)
+      comment:
+        comment: コメント
