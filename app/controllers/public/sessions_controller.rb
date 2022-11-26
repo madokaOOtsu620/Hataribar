@@ -2,6 +2,7 @@
 
 class Public::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
+  before_action :reject_user, only: [:create]
 
   # GET /resource/sign_in
   # def new
@@ -36,12 +37,10 @@ class Public::SessionsController < Devise::SessionsController
   # end
 
   def reject_user
-    @user = User.find_by(name: params[:user][:email])
+    @user = User.find_by(email: params[:user][:email])
     if @user
-      if @user.valid_password?(params[:user][:encrypted_password]) && (@user.is_deleted == false)
+      if @user.valid_password?(params[:user][:password]) && (@user.is_deleted == true)
         redirect_to new_user_registration_path, notice: "お探しのアカウントは退会済みです。再度ご登録をしてご利用ください"
-      else
-        render :new
       end
     end
   end
