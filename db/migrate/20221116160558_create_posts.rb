@@ -2,7 +2,6 @@ class CreatePosts < ActiveRecord::Migration[6.1]
   def change
     create_table :posts do |t|
 
-    # user_idとindustry_idにNOT NULL付け忘れた...
       t.integer :user_id
       t.integer :industry_id
       t.string :answer_what

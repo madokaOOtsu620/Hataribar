@@ -1,4 +1,5 @@
 class Public::PostsController < ApplicationController
+  before_action :authenticate_user!, except: [:show]
 
   # before_action :move_to_signed_in, except: [:show]
   # before_action :post_params, expect: :new
@@ -26,8 +27,11 @@ class Public::PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     @post.user_id = current_user.id
-    @post.save!
-    redirect_to posts_path
+    if @post.save
+      redirect_to posts_path, notice: "体験談を投稿しました！"
+    else
+      render :new
+    end
   end
 
   # def confirm
