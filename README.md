@@ -29,11 +29,12 @@
  - 就職活動で自己PRなどを考えるヒントを得たい時。
 
 ## 設計書
-後ほど
+ - [ハタリバ_ER図.drawio.pdf](https://github.com/Rjeholge/Hataribar/files/10097593/_ER.drawio.pdf)
+ - [ハタリバ_テーブル定義書.pdf](https://github.com/Rjeholge/Hataribar/files/10097595/_.pdf)
 
 ## 開発環境
-- OS：Linux(CentOS)
-- 言語：HTML,CSS,JavaScript,Ruby,SQL
-- フレームワーク：Ruby on Rails
-- JSライブラリ：jQuery
-- IDE：Cloud9
+ - OS：Linux(CentOS)
+ - 言語：HTML,CSS,JavaScript,Ruby,SQL
+ - フレームワーク：Ruby on Rails
+ - JSライブラリ：jQuery
+ - IDE：Cloud9
