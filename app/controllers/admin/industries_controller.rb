@@ -13,7 +13,7 @@ class Admin::IndustriesController < ApplicationController
   def update
     @industry = Industry.find(params[:id])
    if @industry.update(industry_params)
-      redirect_to admin_industries_path
+      redirect_to admin_industries_path, notice: '業界名を更新しました！'
    else
       render :edit
    end
@@ -22,7 +22,7 @@ class Admin::IndustriesController < ApplicationController
   def create
     @industry = Industry.new(industry_params)
     if @industry.save
-      redirect_to admin_industries_path
+      redirect_to admin_industries_path, notice: '業界を追加しました！'
     else
       @industries = Industry.all
       render :index
