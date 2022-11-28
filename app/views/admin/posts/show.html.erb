@@ -13,7 +13,19 @@
 
 <div class="row mb-5">
   <div class="mx-auto">
-    <%= render 'layouts/post', post: @post %>
+    <div class="post bg-light">
+      <div class="field">
+        <strong>回答者：</strong>
+        <p>
+          <% if @post.user.is_deleted == false %>
+            <%= @post.user.user_name %>
+          <% else %>
+            <%= @post.user.user_name %>(退会済みユーザー)
+          <% end %>
+        </p>
+      </div>
+      <%= render 'layouts/post', post: @post %>
+    </div>
   </div>
 </div>
 
@@ -29,9 +41,13 @@
       <% @post.comments.each do |comment| %>
         <div class="mb-3">
           <%= comment.comment %><br>
-          by <%= comment.user.user_name %> |
-          <%= comment.created_at.strftime('%Y/%m/%d') %> |
-          <%= link_to "コメント削除", admin_post_comment_path(comment.post,comment), method: :delete, "data-confirm" => "このコメントを削除しますか？" %>
+          <% if comment.user.is_deleted == false %>
+            by <%= comment.user.user_name %>
+          <% else %>
+            by <%= comment.user.user_name %>(退会済みユーザー)
+          <% end %>
+          | <%= comment.created_at.strftime('%Y/%m/%d') %>
+          | <%= link_to "コメント削除", admin_post_comment_path(comment.post,comment), method: :delete, "data-confirm" => "このコメントを削除しますか？" %>
         </div>
       <% end %>
     </div>
