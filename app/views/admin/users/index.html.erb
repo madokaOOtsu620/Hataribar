@@ -1,3 +1,5 @@
+<%= render 'layouts/notice' %>
+
 <div class="row mb-5">
   <div class="mx-auto">
     <h3>ユーザー一覧</h3>
@@ -26,8 +28,9 @@
             <% if user.is_deleted == false %>
               <p class="status-text">有効</p>
             <% else %>
-              <p class="status-text">退会済</p>
+              <p class="status-text">退会済み</p>
             <% end %>
+            <%= link_to "ステータスを変更する", edit_admin_user_path(user.id) %>
             </td>
           </tr>
         <% end %>

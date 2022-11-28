@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root :to => 'homes#top'
 
   # users
-  get 'users/index' => 'users#index'
+  resources :users, only: [:index, :edit, :update]
 
   # posts
   resources :posts, only: [:show, :destroy] do
