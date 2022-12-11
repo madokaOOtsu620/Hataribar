@@ -69,29 +69,12 @@
 
       <% if user_signed_in? %>
         <div class="mb-5">
-        <%= form_with model: [@post, @comment] do |f| %>
-          <%= f.text_area :comment, placeholder: "コメントはここに書いてください" %><br>
-          <%= f.submit "コメントを送信する" %>
-        <% end %>
+          <%= render 'public/comments/form', post: @post, comment: @comment %>
         </div>
       <% end %>
 
         <div>
-        <h4 class="border-bottom">コメント</h4>
-        <% @post.comments.each do |comment| %>
-          <div class="mb-3">
-            <%= comment.comment %><br>
-            <% if comment.user.is_deleted == false %>
-              by <%= comment.user.user_name %>
-            <% else %>
-              by 退会済みユーザー
-            <% end %>
-            | <%= comment.created_at.strftime('%Y/%m/%d') %>
-          <% if comment.user == current_user %>
-            | <%= link_to "コメント削除", post_comment_path(comment.post,comment), method: :delete, "data-confirm" => "コメントを削除しますか？" %>
-          <% end %>
-          </div>
-        <% end %>
+          <%= render 'public/comments/index', post: @post %>
         </div>
 
       </div>
