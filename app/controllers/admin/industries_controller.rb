@@ -29,6 +29,12 @@ class Admin::IndustriesController < ApplicationController
     end
   end
 
+  def destroy
+    @industry = Industry.find(params[:id])
+    @industry.destroy
+    redirect_to admin_industries_path, notice: '業界を削除しました！'
+  end
+
   private
 
   def industry_params
