@@ -2,7 +2,7 @@ class Admin::UsersController < ApplicationController
   before_action :authenticate_admin!
 
   def index
-    @users = User.all
+    @users = User.page(params[:page]).per(10)
   end
 
   def edit
@@ -12,7 +12,7 @@ class Admin::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to admin_users_path, notice: "ユーザーID：#{@user.id} のステータスを変更しました！"
+      redirect_to edit_admin_user_path(@user.id), notice: "ユーザーのステータスを変更しました！"
     else
       render :edit
     end

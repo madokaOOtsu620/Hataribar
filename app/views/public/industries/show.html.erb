@@ -15,14 +15,14 @@
   </div>
 
   <div class="col-md-8">
-    <% if @industry.posts == [] %>
+    <% if @posts == [] %>
 
       <h3>お探しの業界の体験談は見つかりませんでした。</h3>
 
     <% else %>
 
       <h3>"<%= @industry.industry %>"の体験談</h3>
-      <% @industry.posts.each do |post| %>
+      <% @posts.each do |post| %>
       <div class="post bg-light">
         <%= link_to post_path(post.id) do %>
         <div>
@@ -40,4 +40,8 @@
     <% end %>
   </div>
 
+</div>
+
+<div="row mb-5">
+  <%= paginate @posts %>
 </div>
