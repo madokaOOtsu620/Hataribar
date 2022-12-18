@@ -8,7 +8,7 @@ class Public::PostsController < ApplicationController
   # 検索結果一覧や、業界からの検索結果一覧は別ビューを用意。
   def index
     @user = current_user
-    @posts = @user.posts
+    @posts = @user.posts.page(params[:page]).per(10)
     # 業界検索テンプレート用
     @industries = Industry.all
   end

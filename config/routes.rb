@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
   # industries
-  resources :industries, only: [:index, :create, :edit, :update, :destroy]
+  resources :industries, only: [:index, :create, :edit, :update]
 
   end
 

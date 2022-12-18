@@ -20,7 +20,7 @@ class Public::BookmarksController < ApplicationController
   end
 
   def index
-    @bookmarks = Bookmark.where(user_id: current_user.id)
+    @bookmarks = Bookmark.where(user_id: current_user.id).all.page(params[:page]).per(10)
     # 業界検索テンプレート用
     @industries = Industry.all
   end

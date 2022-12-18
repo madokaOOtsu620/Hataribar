@@ -11,20 +11,19 @@
   <div class="mx-auto">
     <div class="col-md-12">
 
-      <% @industries.each do |industry| %>
-        <div class="form-group form-inline">
-          <div class="col-md-8"><strong><%= industry.industry %></strong></div>
-          <div class="col-md-4">
-            <%= link_to "編集", edit_admin_industry_path(industry.id) %> /
-            <%= link_to "削除", admin_industry_path(industry.id), method: :delete, "data-confirm" => "#{industry.industry}を削除しますか？" %>
-          </div>
-        </div>
-      <% end %>
-
       <%= form_with model: @industry, url: admin_industries_path, method: :post do |f| %>
         <div class="form-group form-inline">
           <div class="col-md-8"><%= f.text_field :industry %></div>
           <div class="col-md-4"><%= f.submit "新規登録", class: "btn btn-dark" %></div>
+        </div>
+      <% end %>
+
+      <% @industries.each do |industry| %>
+        <div class="form-group form-inline">
+          <div class="col-md-8"><strong><%= industry.industry %></strong></div>
+          <div class="col-md-4">
+            <%= link_to "編集", edit_admin_industry_path(industry.id) %>
+          </div>
         </div>
       <% end %>
 
