@@ -1,9 +1,6 @@
 class Public::PostsController < ApplicationController
   before_action :authenticate_user!, except: [:show]
 
-  # before_action :move_to_signed_in, except: [:show]
-  # before_action :post_params, expect: :new
-
   # この場合のindexは、ユーザーが自分の投稿を見る時に使用。
   # 検索結果一覧や、業界からの検索結果一覧は別ビューを用意。
   def index
@@ -34,28 +31,6 @@ class Public::PostsController < ApplicationController
     end
   end
 
-  # def confirm
-  #   @post = Post.new(@temporarily)
-  #   if @post.invalid?
-  #     render :new
-  #   end
-  # end
-
-  # def back
-  #   @post = Post.new(@temporarily)
-  #   render :new
-  # end
-
-  # def complete
-  #   Post.create!(@temporarily)
-  # end
-
-  #def create
-    #post = Post.new(post_params)
-    #post.save
-    #redirect_to post_path(post.id)
-  #end
-
   def edit
     @post = Post.find(params[:id])
   end
@@ -72,29 +47,12 @@ class Public::PostsController < ApplicationController
     redirect_to mypage_path, notice: "投稿を削除しました！"
   end
 
-
-
   private
-
-    #def post_params
-      #params.require(:post).permit(:user_id, :industry_id, :answer_what, :answer_employment_type,
-      #:answer_working_style, :answer_income, :answer_how, :answer_skill, :answer_why,
-      #:answer_aptitude, :answer_future, :answer_advantage, :answer_free)
-    #end
 
     def post_params
       params.require(:post).permit(:industry_id, :answer_what, :answer_employment_status,
       :answer_working_style, :answer_income, :answer_how, :answer_skill, :answer_why,
       :answer_aptitude, :answer_future, :answer_advantage, :answer_free)
-      # @temporarily = params.require('post').permit(:id, :user_id, :industry_id, :answer_what, :answer_employment_status,
-      # :answer_working_style, :answer_income, :answer_how, :answer_skill, :answer_why,
-      # :answer_aptitude, :answer_future, :answer_advantage, :answer_free)
     end
-
-    # def move_to_signed_in
-    #   unless user_signed_in?
-    #     redirect_to new_user_session_path
-    #   end
-    # end
 
 end
