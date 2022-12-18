@@ -3,7 +3,6 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = current_user
-    #@posts = @user.posts.all
   end
 
   def edit
@@ -34,26 +33,7 @@ class Public::UsersController < ApplicationController
 
 
 
-  # before_action user_admin, only: [:index]
-  # # admin権限持ちユーザーのみ閲覧可能
-
-  # def index
-  #   @users = User.all
-  # end
-
-  # user_adminを定義
-  # ログイン中のユーザーのadminカラムがfalseならトップページへ
-  # trueならユーザー一覧ページへ
   private
-
-    # def user_admin
-    #   @users = User.all
-    #   if  current_user.admin == false
-    #       redirect_to root_path
-    #   else
-    #       render action: "index"
-    #   end
-    # end
 
     def user_params
       params.require(:user).permit(:user_id, :user_name, :email, :encrypted_password, :age, :is_deleted)
