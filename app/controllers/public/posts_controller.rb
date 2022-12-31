@@ -40,8 +40,11 @@ class Public::PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
-    @post.update(post_params)
-    redirect_to post_path(@post), notice: "内容を更新しました！"
+    if @post.update(post_params)
+      redirect_to post_path(@post), notice: "内容を更新しました！"
+    else
+      render :edit
+    end
   end
 
   def destroy
