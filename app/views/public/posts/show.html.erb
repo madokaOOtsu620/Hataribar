@@ -33,16 +33,6 @@
     <div class="row mb-5">
       <div class="col-md-12">
         <div class="post bg-light">
-          <div class="field">
-            <strong>回答者：</strong>
-            <p>
-              <% if @post.user.is_deleted == false %>
-                <%= @post.user.user_name %>
-              <% else %>
-                退会済みユーザー
-              <% end %>
-            </p>
-          </div>
           <%= render 'layouts/post', post: @post %>
         </div>
       </div>
