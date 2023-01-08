@@ -2,7 +2,7 @@
 <% @industries.each do |industry| %>
   <li class="list-group">
     <%= link_to industry_path(industry.id) do %>
-      <%= industry.industry %>
+      <%= industry.industry %>(<%= industry.posts.count%>)
     <% end %>
   </li>
 <% end %>
