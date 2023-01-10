@@ -13,53 +13,53 @@
 
       <%= form_with model: @post do |f| %>
 
-        <div class="field">
+        <div class="mb-3">
           <h4>業種</h4>
             <%= f.collection_select :industry_id, Industry.all, :id, :industry, include_blank: "--選択してください--" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>どんなお仕事ですか？職種や働く場所、業務内容を教えてください。</h4>
-            <%= f.text_area :answer_what, style: "width:100%" , placeholder:"(例)空港で航空貨物を取り扱う事務の仕事をしていました。業務内容は〜" %>
+            <%= f.text_area :answer_what, class: "form-control", rows: 3, placeholder:"(例)空港で航空貨物を取り扱う事務の仕事をしていました。業務内容は〜", maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>雇用形態は？</h4>
-            <%= f.text_area :answer_employment_status, style: "width:100%" , placeholder:"(例)正社員、パート、アルバイトなど" %>
+            <%= f.text_area :answer_employment_status, class: "form-control", rows: 3, placeholder:"(例)正社員、パート、アルバイトなど" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>勤務形態は？</h4>
-            <%= f.text_area :answer_working_style, style: "width:100%" , placeholder:"(例)完全シフト制です。具体的には、休日が〜、シフトは〜..." %>
+            <%= f.text_area :answer_working_style, class: "form-control", rows: 3, placeholder:"(例)完全シフト制です。具体的には、休日が〜、シフトは〜...", maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>年収(額面の金額)や手取りの金額を教えてください。</h4>
-            <%= f.text_area :answer_income, style: "width:100%" , placeholder:"(例)年収は日勤の部署とシフトの部署で異なり、350〜450万。手取りは月20万くらい..." %>
+            <%= f.text_area :answer_income, class: "form-control", rows: 3, placeholder:"(例)年収は日勤の部署とシフトの部署で異なり、350〜450万。手取りは月20万くらい...", maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事にはどうやってなりましたか？学歴や経歴などを教えてください。</h4>
-            <%= f.text_area :answer_how, style: "width:100%" , placeholder:"(例)観光系の専門学校を通っています。" %>
+            <%= f.text_area :answer_how, class: "form-control", rows: 3, placeholder:"(例)観光系の専門学校を通っています。" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事をする為に必要な資格やスキルはありますか？</h4>
-            <%= f.text_area :answer_skill, style: "width:100%" , placeholder:"(例)海外支店とのメールのやりとりが頻繁にある為、対応できる最低限の英語力が必要です。" %>
+            <%= f.text_area :answer_skill, class: "form-control", rows: 3, placeholder:"(例)海外支店とのメールのやりとりが頻繁にある為、対応できる最低限の英語力が必要です。", maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>なぜその仕事をやろうと思いましたか？</h4>
-            <%= f.text_area :answer_why, style: "width:100%" , placeholder:"(例)英語を使う仕事という観点から航空業界に興味を持ち、〜" %>
+            <%= f.text_area :answer_why, class: "form-control", rows: 3, placeholder:"(例)英語を使う仕事という観点から航空業界に興味を持ち、〜", maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事に向いている人の特徴はありますか？自分自身の性格や、周りにいた方はどんな感じでしたか？</h4>
-            <%= f.text_area :answer_aptitude, style: "width:100%" , placeholder:"(例)マルチタスクが得意な方、せっかちな方に向いていると思います。" %>
+            <%= f.text_area :answer_aptitude, class: "form-control", rows: 3, placeholder:"(例)マルチタスクが得意な方、せっかちな方に向いていると思います。", maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事の将来性をどう考えますか？</h4>
-            <%= f.text_area :answer_future, style: "width:100%" , placeholder:"(例)物流を支える仕事なので無くなることは無いが、〜" %>
+            <%= f.text_area :answer_future, class: "form-control", rows: 3, placeholder:"(例)物流を支える仕事なので無くなることは無いが、〜", maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事をやっていて良かったこと、メリットだと感じたこと、やりがいなどを教えてください。</h4>
-            <%= f.text_area :answer_advantage, style: "width:100%" , placeholder:"(例)仕事というよりはシフト勤務のメリット。平日に休みが取れるので〜、" %>
+            <%= f.text_area :answer_advantage, class: "form-control", rows: 3, placeholder:"(例)仕事というよりはシフト勤務のメリット。平日に休みが取れるので〜、", maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>最後に、これからその仕事をやろうとする人へのコメントなど自由に意見をください。</h4>
-            <%= f.text_area :answer_free, style: "width:100%" , placeholder:"(例)航空業界の事務仕事ということで、ハマる人にはハマる仕事だと思います。ただシフト勤務はやはり体を壊すのでお勧めできない。" %>
+            <%= f.text_area :answer_free, class: "form-control", rows: 3, placeholder:"(例)航空業界の事務仕事ということで、ハマる人にはハマる仕事だと思います。ただシフト勤務はやはり体を壊すのでお勧めできない。", maxlength:"200" %>
         </div>
 
         <div class="col mt-5 text-center">
