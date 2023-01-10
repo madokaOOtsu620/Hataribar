@@ -26,6 +26,11 @@
       <div class="post bg-light">
         <%= link_to post_path(post.id) do %>
         <div>
+          <strong>投稿日時：</strong>
+          <span><%= post.created_at.to_s(:datetime_jp) %></span>
+          <p></p>
+        </div>
+        <div>
           <h4><業種></h4>
           <p><%= post.industry.industry %></p>
         </div>

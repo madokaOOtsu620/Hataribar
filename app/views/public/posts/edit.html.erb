@@ -13,53 +13,53 @@
 
       <%= form_with model: @post, url: post_path(@post), method: :patch do |f| %>
 
-        <div class="field">
+        <div class="mb-3">
           <h4>業種</h4>
             <%= f.collection_select :industry_id, Industry.all, :id, :industry, include_blank: "--選択してください--" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>どんなお仕事ですか？職種や働く場所、業務内容を教えてください。</h4>
-            <%= f.text_area :answer_what, style: "width:100%" %>
+            <%= f.text_area :answer_what, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>雇用形態は？</h4>
-            <%= f.text_area :answer_employment_status, style: "width:100%" %>
+            <%= f.text_area :answer_employment_status, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>勤務形態は？</h4>
-            <%= f.text_area :answer_working_style, style: "width:100%" %>
+            <%= f.text_area :answer_working_style, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>年収(額面の金額)や手取りの金額を教えてください。</h4>
-            <%= f.text_area :answer_income, style: "width:100%" %>
+            <%= f.text_area :answer_income, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事にはどうやってなりましたか？学歴や経歴などを教えてください。</h4>
-            <%= f.text_area :answer_how, style: "width:100%" %>
+            <%= f.text_area :answer_how, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事をする為に必要な資格やスキルはありますか？</h4>
-            <%= f.text_area :answer_skill, style: "width:100%" %>
+            <%= f.text_area :answer_skill, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>なぜその仕事をやろうと思いましたか？</h4>
-            <%= f.text_area :answer_why, style: "width:100%" %>
+            <%= f.text_area :answer_why, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事に向いている人の特徴はありますか？自分自身の性格や、周りにいた方はどんな感じでしたか？</h4>
-            <%= f.text_area :answer_aptitude, style: "width:100%" %>
+            <%= f.text_area :answer_aptitude, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事の将来性をどう考えますか？</h4>
-            <%= f.text_area :answer_future, style: "width:100%" %>
+            <%= f.text_area :answer_future, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>その仕事をやっていて良かったこと、メリットだと感じたこと、やりがいなどを教えてください。</h4>
-            <%= f.text_area :answer_advantage, style: "width:100%" %>
+            <%= f.text_area :answer_advantage, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
-        <div class="field">
+        <div class="mb-3">
           <h4>最後に、これからその仕事をやろうとする人へのコメントなど自由に意見をください。</h4>
-            <%= f.text_area :answer_free, style: "width:100%" %>
+            <%= f.text_area :answer_free, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
 
         <div class="col mt-5 text-center">
