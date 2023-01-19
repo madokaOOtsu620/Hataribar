@@ -25,3 +25,8 @@ ja:
         comment: コメント
       industry:
         industry: 業界名
+    # errors:
+    #   models:
+    #     post:
+    #       format: "%{attribute}: %{message}"
+    #       length: "2文字以上で入力して"
