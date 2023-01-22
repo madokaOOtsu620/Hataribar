@@ -5,12 +5,11 @@ class Post < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :answer_what,              length:{minimum:2}
-  validates :answer_employment_status, length:{minimum:2}
-  validates :answer_working_style,     length:{minimum:2}
-  validates :answer_income,            length:{minimum:2}
-  validates :answer_how,               length:{minimum:2}
-  validates :answer_skill,             length:{minimum:2}
+  with_options presence: true do
+    validates :answer_what, :answer_employment_status, :answer_working_style,
+    :answer_income, :answer_how, :answer_skill
+  end
+
   # validates :answer_why,               presence: true, length:{minimum:2, maximum:200}
   # validates :answer_aptitude,          presence: true, length:{minimum:2, maximum:200}
   # validates :answer_future,            presence: true, length:{minimum:2, maximum:200}

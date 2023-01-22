@@ -1,5 +1,3 @@
-<%= render 'layouts/error', obj: @post %>
-
 <div class="row mb-5">
   <div class="mx-auto">
     <h3>あなたの職業体験を教えてください。</h3>
@@ -14,31 +12,52 @@
       <%= form_with model: @post do |f| %>
 
         <div class="mb-3">
-          <h4>業種</h4>
+          <h4>業種 <span class="badge text-light" style="background-color: #ff4500">選択必須</span></h4>
+            <% if @post.errors.include?(:industry) %>
+              <p style="color: #ff4500;"><%#= @post.errors.full_messages_for(:industry).first %><br>
+            <% end %>
             <%= f.collection_select :industry_id, Industry.all, :id, :industry, include_blank: "--選択してください--" %>
         </div>
         <div class="mb-3">
           <h4>どんなお仕事ですか？職種や働く場所、業務内容を教えてください。<span class="badge text-light" style="background-color: #ff4500">必須</span></h4>
+            <% if @post.errors.include?(:answer_what) %>
+              <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_what).first %>
+            <% end %>
             <%= f.text_area :answer_what, class: "form-control", rows: 3, placeholder:"(例)空港で航空貨物を取り扱う事務の仕事をしていました。業務内容は〜", maxlength:"200" %>
         </div>
         <div class="mb-3">
           <h4>雇用形態は？<span class="badge text-light">必須</span></h4>
+            <% if @post.errors.include?(:answer_employment_status) %>
+              <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_employment_status).first %>
+            <% end %>
             <%= f.text_area :answer_employment_status, class: "form-control", rows: 3, placeholder:"(例)正社員、パート、アルバイトなど" %>
         </div>
         <div class="mb-3">
           <h4>勤務形態は？<span class="badge text-light">必須</span></h4>
+            <% if @post.errors.include?(:answer_working_style) %>
+              <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_working_style).first %>
+            <% end %>
             <%= f.text_area :answer_working_style, class: "form-control", rows: 3, placeholder:"(例)完全シフト制です。具体的には、休日が〜、シフトは〜...", maxlength:"200" %>
         </div>
         <div class="mb-3">
           <h4>年収(額面の金額)や手取りの金額を教えてください。<span class="badge text-light">必須</span></h4>
+            <% if @post.errors.include?(:answer_income) %>
+              <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_income).first %>
+            <% end %>
             <%= f.text_area :answer_income, class: "form-control", rows: 3, placeholder:"(例)年収は日勤の部署とシフトの部署で異なり、350〜450万。手取りは月20万くらい...", maxlength:"200" %>
         </div>
         <div class="mb-3">
           <h4>その仕事にはどうやってなりましたか？学歴や経歴などを教えてください。<span class="badge text-light">必須</span></h4>
+            <% if @post.errors.include?(:answer_how) %>
+              <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_how).first %>
+            <% end %>
             <%= f.text_area :answer_how, class: "form-control", rows: 3, placeholder:"(例)観光系の専門学校を通っています。" %>
         </div>
         <div class="mb-3">
           <h4>その仕事をする為に必要な資格やスキルはありますか？<span class="badge text-light">必須</span></h4>
+            <% if @post.errors.include?(:answer_skill) %>
+              <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_skill).first %>
+            <% end %>
             <%= f.text_area :answer_skill, class: "form-control", rows: 3, placeholder:"(例)海外支店とのメールのやりとりが頻繁にある為、対応できる最低限の英語力が必要です。", maxlength:"200" %>
         </div>
         <div class="mb-3">
