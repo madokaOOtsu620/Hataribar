@@ -13,7 +13,7 @@ module Hataribar
 
     # デフォルトのロケールを:en以外に変更する
     config.i18n.default_locale = :ja
-    
+
     # フォーマットのカスタマイズ
     config.active_model.i18n_customize_full_message = true
 

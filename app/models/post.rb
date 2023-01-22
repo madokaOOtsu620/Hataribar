@@ -10,12 +10,6 @@ class Post < ApplicationRecord
     :answer_income, :answer_how, :answer_skill
   end
 
-  # validates :answer_why,               presence: true, length:{minimum:2, maximum:200}
-  # validates :answer_aptitude,          presence: true, length:{minimum:2, maximum:200}
-  # validates :answer_future,            presence: true, length:{minimum:2, maximum:200}
-  # validates :answer_advantage,         presence: true, length:{minimum:2, maximum:200}
-  # validates :answer_free,              presence: true, length:{minimum:2, maximum:200}
-
   # 投稿の仕事内容カラムを範囲とし、キーワード検索をかけられる
   # キーワードが入力されない場合は投稿一覧が表示される
   def self.search(search)
