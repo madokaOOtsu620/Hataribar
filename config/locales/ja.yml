@@ -14,7 +14,7 @@ ja:
         answer_employment_status: 雇用形態
         answer_working_style: 勤務形態
         answer_income: 収入面
-        answer_how: この仕事のなり方
+        answer_how: 仕事のなり方
         answer_skill: 必要な資格やスキル
         answer_why: なぜこの仕事をやろうと思ったか？
         answer_aptitude: 向いている人の特徴
@@ -25,3 +25,8 @@ ja:
         comment: コメント
       industry:
         industry: 業界名
+    errors:
+      models:
+        post:
+          format: "%{message}"
+          blank: "必須入力です。2文字以上で記載をお願いします。"

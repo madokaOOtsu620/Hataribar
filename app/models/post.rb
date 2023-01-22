@@ -5,17 +5,16 @@ class Post < ApplicationRecord
   has_many :bookmarks, dependent: :destroy
   has_many :comments, dependent: :destroy
 
-  validates :answer_what,              presence: true, length:{minimum:2, maximum:200}
-  validates :answer_employment_status, presence: true, length:{minimum:2, maximum:200}
-  validates :answer_working_style,     presence: true, length:{minimum:2, maximum:200}
-  validates :answer_income,            presence: true, length:{minimum:2, maximum:200}
-  validates :answer_how,               presence: true, length:{minimum:2, maximum:200}
-  validates :answer_skill,             presence: true, length:{minimum:2, maximum:200}
-  validates :answer_why,               presence: true, length:{minimum:2, maximum:200}
-  validates :answer_aptitude,          presence: true, length:{minimum:2, maximum:200}
-  validates :answer_future,            presence: true, length:{minimum:2, maximum:200}
-  validates :answer_advantage,         presence: true, length:{minimum:2, maximum:200}
-  validates :answer_free,              presence: true, length:{minimum:2, maximum:200}
+  with_options presence: true do
+    validates :answer_what, :answer_employment_status, :answer_working_style,
+    :answer_income, :answer_how, :answer_skill
+  end
+
+  # validates :answer_why,               presence: true, length:{minimum:2, maximum:200}
+  # validates :answer_aptitude,          presence: true, length:{minimum:2, maximum:200}
+  # validates :answer_future,            presence: true, length:{minimum:2, maximum:200}
+  # validates :answer_advantage,         presence: true, length:{minimum:2, maximum:200}
+  # validates :answer_free,              presence: true, length:{minimum:2, maximum:200}
 
   # 投稿の仕事内容カラムを範囲とし、キーワード検索をかけられる
   # キーワードが入力されない場合は投稿一覧が表示される

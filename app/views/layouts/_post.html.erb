@@ -51,23 +51,43 @@
   <h4><必要な資格やスキル></h4>
   <p><%= post.answer_skill %></p>
 </div>
+
+<% if post.answer_why == "" %>
+<% else %>
 <div class="field">
   <h4><なぜこの仕事をやろうと思ったか？></h4>
   <p><%= post.answer_why %></p>
 </div>
+<% end %>
+
+<% if post.answer_aptitude == "" %>
+<% else %>
 <div class="field">
   <h4><適性、性格による向き不向き></h4>
   <p><%= post.answer_aptitude %></p>
 </div>
+<% end %>
+
+<% if post.answer_future == "" %>
+<% else %>
 <div class="field">
   <h4><この仕事の将来性は？></h4>
   <p><%= post.answer_future %></p>
 </div>
+<% end %>
+
+<% if post.answer_advantage == "" %>
+<% else %>
 <div class="field">
   <h4><メリット、やりがい></h4>
   <p><%= post.answer_advantage %></p>
 </div>
+<% end %>
+
+<% if post.answer_free == "" %>
+<% else %>
 <div class="field">
   <h4><最後に></h4>
   <p><%= post.answer_free %></p>
 </div>
+<% end %>

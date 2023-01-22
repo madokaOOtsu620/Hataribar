@@ -18,27 +18,27 @@
             <%= f.collection_select :industry_id, Industry.all, :id, :industry, include_blank: "--選択してください--" %>
         </div>
         <div class="mb-3">
-          <h4>どんなお仕事ですか？職種や働く場所、業務内容を教えてください。</h4>
+          <h4>どんなお仕事ですか？職種や働く場所、業務内容を教えてください。<span class="badge text-light">必須</span></h4>
             <%= f.text_area :answer_what, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
         <div class="mb-3">
-          <h4>雇用形態は？</h4>
+          <h4>雇用形態は？<span class="badge text-light">必須</span></h4>
             <%= f.text_area :answer_employment_status, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
         <div class="mb-3">
-          <h4>勤務形態は？</h4>
+          <h4>勤務形態は？<span class="badge text-light">必須</span></h4>
             <%= f.text_area :answer_working_style, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
         <div class="mb-3">
-          <h4>年収(額面の金額)や手取りの金額を教えてください。</h4>
+          <h4>年収(額面の金額)や手取りの金額を教えてください。<span class="badge text-light">必須</span></h4>
             <%= f.text_area :answer_income, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
         <div class="mb-3">
-          <h4>その仕事にはどうやってなりましたか？学歴や経歴などを教えてください。</h4>
+          <h4>その仕事にはどうやってなりましたか？学歴や経歴などを教えてください。<span class="badge text-light">必須</span></h4>
             <%= f.text_area :answer_how, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
         <div class="mb-3">
-          <h4>その仕事をする為に必要な資格やスキルはありますか？</h4>
+          <h4>その仕事をする為に必要な資格やスキルはありますか？<span class="badge text-light">必須</span></h4>
             <%= f.text_area :answer_skill, class: "form-control", rows: 3, maxlength:"200" %>
         </div>
         <div class="mb-3">
