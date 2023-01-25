@@ -24,7 +24,8 @@
             <% if @post.errors.include?(:answer_what) %>
               <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_what).first %>
             <% end %>
-            <%= f.text_area :answer_what, class: "form-control", rows: 3, placeholder:"(例)空港で航空貨物を取り扱う事務の仕事をしていました。業務内容は〜", maxlength:"200" %>
+            <%= f.text_area :answer_what, class: "form-control js-text", rows: 3, placeholder:"(例)空港で航空貨物を取り扱う事務の仕事をしていました。業務内容は〜", maxlength:"200" %>
+            <P class="js-text-count pull-left"></P>
         </div>
 
         <div class="mb-3">
