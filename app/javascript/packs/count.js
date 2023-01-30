@@ -1,22 +1,65 @@
 /*global $*/
+/*global length*/
+// $(function (){
+//   $('#js-text', '#counter').on('keydown keyup keypress change', function(){
+//     let countNum = String($(this).val(),length);
+//     $('#counter').text(countNum + "文字");
+//   });
+// });
+
 $(function(){
-  var count = $(".js-text").text().replace(/\n/g, "改行").length;
-  var now_count = 200 - count;
-  if (count > 200){
-    $(".js-text-count").css("color","orange")
-  }
+  $("#js-text1").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter1").text(countNum + "文字");
+  });
 
-  $(".js-text-count").text("残り" + now_count + "文字");
+  $("#js-text2").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter2").text(countNum + "文字");
+  });
 
-  $(".js-text").on("keyup", function(){
-    var count = $(this).val().replace(/\n/g, "改行").length;
-    var now_count = 200 - count;
+  $("#js-text3").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter3").text(countNum + "文字");
+  });
 
-    if (count > 200){
-      $(".js-text-count").css("color", "orange");
-    } else{
-      $(".js-text-count").css("color", "black");
-    }
-    $(".js-text-count").text("残り" + now_count + "文字");
+  $("#js-text4").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter4").text(countNum + "文字");
+  });
+
+  $("#js-text5").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter5").text(countNum + "文字");
+  });
+
+  $("#js-text6").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter6").text(countNum + "文字");
+  });
+
+  $("#js-text7").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter7").text(countNum + "文字");
+  });
+
+  $("#js-text8").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter8").text(countNum + "文字");
+  });
+
+  $("#js-text9").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter9").text(countNum + "文字");
+  });
+
+  $("#js-text10").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter10").text(countNum + "文字");
+  });
+
+  $("#js-text11").on("keyup", function() {
+  let countNum = String($(this).val().length);
+  $("#counter11").text(countNum + "文字");
   });
 });

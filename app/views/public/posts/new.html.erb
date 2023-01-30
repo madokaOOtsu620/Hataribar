@@ -1,3 +1,5 @@
+<%= javascript_pack_tag 'count' %>
+
 <div class="row mb-5">
   <div class="mx-auto">
     <h3>あなたの職業体験を教えてください。</h3>
@@ -24,8 +26,8 @@
             <% if @post.errors.include?(:answer_what) %>
               <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_what).first %>
             <% end %>
-            <%= f.text_area :answer_what, class: "form-control js-text", rows: 3, placeholder:"(例)空港で航空貨物を取り扱う事務の仕事をしていました。業務内容は〜", maxlength:"200" %>
-            <P class="js-text-count pull-left"></P>
+            <%= f.text_area :answer_what, class: "form-control", id:"js-text1", rows: 3, placeholder:"(例)空港で航空貨物を取り扱う事務の仕事をしていました。業務内容は〜", maxlength:"200" %>
+            <p id="counter1">0文字</p>
         </div>
 
         <div class="mb-3">
@@ -33,7 +35,8 @@
             <% if @post.errors.include?(:answer_employment_status) %>
               <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_employment_status).first %>
             <% end %>
-            <%= f.text_area :answer_employment_status, class: "form-control", rows: 3, placeholder:"(例)正社員、パート、アルバイトなど" %>
+            <%= f.text_area :answer_employment_status, class: "form-control", id:"js-text2", rows: 3, placeholder:"(例)正社員、パート、アルバイトなど" %>
+            <p id="counter2">0文字</p>
         </div>
 
         <div class="mb-3">
@@ -41,7 +44,8 @@
             <% if @post.errors.include?(:answer_working_style) %>
               <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_working_style).first %>
             <% end %>
-            <%= f.text_area :answer_working_style, class: "form-control", rows: 3, placeholder:"(例)完全シフト制です。具体的には、休日が〜、シフトは〜...", maxlength:"200" %>
+            <%= f.text_area :answer_working_style, class: "form-control", id:"js-text3", rows: 3, placeholder:"(例)完全シフト制です。具体的には、休日が〜、シフトは〜...", maxlength:"200" %>
+            <p id="counter3">0文字</p>
         </div>
 
         <div class="mb-3">
@@ -49,7 +53,8 @@
             <% if @post.errors.include?(:answer_income) %>
               <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_income).first %>
             <% end %>
-            <%= f.text_area :answer_income, class: "form-control", rows: 3, placeholder:"(例)年収は日勤の部署とシフトの部署で異なり、350〜450万。手取りは月20万くらい...", maxlength:"200" %>
+            <%= f.text_area :answer_income, class: "form-control", id:"js-text4", rows: 3, placeholder:"(例)年収は日勤の部署とシフトの部署で異なり、350〜450万。手取りは月20万くらい...", maxlength:"200" %>
+            <p id="counter4">0文字</p>
         </div>
 
         <div class="mb-3">
@@ -57,7 +62,8 @@
             <% if @post.errors.include?(:answer_how) %>
               <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_how).first %>
             <% end %>
-            <%= f.text_area :answer_how, class: "form-control", rows: 3, placeholder:"(例)観光系の専門学校を通っています。" %>
+            <%= f.text_area :answer_how, class: "form-control", id:"js-text5", rows: 3, placeholder:"(例)観光系の専門学校を通っています。" %>
+            <p id="counter5">0文字</p>
         </div>
 
         <div class="mb-3">
@@ -65,28 +71,34 @@
             <% if @post.errors.include?(:answer_skill) %>
               <p style="color: #ff4500;"><%= @post.errors.full_messages_for(:answer_skill).first %>
             <% end %>
-            <%= f.text_area :answer_skill, class: "form-control", rows: 3, placeholder:"(例)海外支店とのメールのやりとりが頻繁にある為、対応できる最低限の英語力が必要です。", maxlength:"200" %>
+            <%= f.text_area :answer_skill, class: "form-control", id:"js-text6", rows: 3, placeholder:"(例)海外支店とのメールのやりとりが頻繁にある為、対応できる最低限の英語力が必要です。", maxlength:"200" %>
+            <p id="counter6">0文字</p>
         </div>
 
         <div class="mb-3">
           <h4>なぜその仕事をやろうと思いましたか？</h4>
-            <%= f.text_area :answer_why, class: "form-control", rows: 3, placeholder:"(例)英語を使う仕事という観点から航空業界に興味を持ち、〜", maxlength:"200" %>
+            <%= f.text_area :answer_why, class: "form-control", id:"js-text7", rows: 3, placeholder:"(例)英語を使う仕事という観点から航空業界に興味を持ち、〜", maxlength:"200" %>
+            <p id="counter7">0文字</p>
         </div>
         <div class="mb-3">
           <h4>その仕事に向いている人の特徴はありますか？自分自身の性格や、周りにいた方はどんな感じでしたか？</h4>
-            <%= f.text_area :answer_aptitude, class: "form-control", rows: 3, placeholder:"(例)マルチタスクが得意な方、せっかちな方に向いていると思います。", maxlength:"200" %>
+            <%= f.text_area :answer_aptitude, class: "form-control", id:"js-text8", rows: 3, placeholder:"(例)マルチタスクが得意な方、せっかちな方に向いていると思います。", maxlength:"200" %>
+            <p id="counter8">0文字</p>
         </div>
         <div class="mb-3">
           <h4>その仕事の将来性をどう考えますか？</h4>
-            <%= f.text_area :answer_future, class: "form-control", rows: 3, placeholder:"(例)物流を支える仕事なので無くなることは無いが、〜", maxlength:"200" %>
+            <%= f.text_area :answer_future, class: "form-control", id:"js-text9", rows: 3, placeholder:"(例)物流を支える仕事なので無くなることは無いが、〜", maxlength:"200" %>
+            <p id="counter9">0文字</p>
         </div>
         <div class="mb-3">
           <h4>その仕事をやっていて良かったこと、メリットだと感じたこと、やりがいなどを教えてください。</h4>
-            <%= f.text_area :answer_advantage, class: "form-control", rows: 3, placeholder:"(例)仕事というよりはシフト勤務のメリット。平日に休みが取れるので〜、", maxlength:"200" %>
+            <%= f.text_area :answer_advantage, class: "form-control", id:"js-text10", rows: 3, placeholder:"(例)仕事というよりはシフト勤務のメリット。平日に休みが取れるので〜、", maxlength:"200" %>
+            <p id="counter10">0文字</p>
         </div>
         <div class="mb-3">
           <h4>最後に、これからその仕事をやろうとする人へのコメントなど自由に意見をください。</h4>
-            <%= f.text_area :answer_free, class: "form-control", rows: 3, placeholder:"(例)航空業界の事務仕事ということで、ハマる人にはハマる仕事だと思います。ただシフト勤務はやはり体を壊すのでお勧めできない。", maxlength:"200" %>
+            <%= f.text_area :answer_free, class: "form-control", id:"js-text11", rows: 3, placeholder:"(例)航空業界の事務仕事ということで、ハマる人にはハマる仕事だと思います。ただシフト勤務はやはり体を壊すのでお勧めできない。", maxlength:"200" %>
+            <p id="counter11">0文字</p>
         </div>
 
         <div class="col mt-5 text-center">
