@@ -28,5 +28,5 @@ ja:
     errors:
       models:
         post:
-          format: "%{message}"
+          format: "%{attribute} %{message}"
           blank: "必須入力です。2文字以上で記載をお願いします。"
